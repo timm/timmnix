@@ -259,6 +259,7 @@ ruby
 screen
 slime
 sbcl
+source-highlight
 subversion
 sudo
 swi-prolog
