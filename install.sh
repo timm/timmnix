@@ -42,9 +42,11 @@ git config user.name "$1"
 git config user.email "$2"
 
 echo  looking for installs ...
+
 All="aspell
 aspell-en
 bash
+build-essential 
 clisp
 compiz
 emacs
@@ -108,22 +110,27 @@ gzip
 html2text
 htop
 idle
-ispell
 imagemagick
+ispell
+latex2html
 latex-beamer
 latex-xcolor
-latex2html
 less
 lftp
-lua-doc
+libatlas3gf-base
+libatlas-dev 
 lua5.1
 luadoc
+lua-doc
 luakit
 luarocks
 make
 nano
 pandoc
 python						
+python2.7					
+python2.7-dev					
+python2.7-minimal				
 python-appindicator				
 python-apt					
 python-apt-common				
@@ -150,6 +157,7 @@ python-debian
 python-debtagshw				
 python-decorator				
 python-defer					
+python-dev 
 python-dev					
 python-dirspec					
 python-distro-info				
@@ -186,6 +194,7 @@ python-lxml
 python-mako					
 python-markdown					
 python-markupsafe				
+python-matplotlib
 python-matplotlib				
 python-matplotlib-data				
 python-mechanize				
@@ -194,8 +203,9 @@ python-mysqldb
 python-netaddr					
 python-netifaces				
 python-nevow					
+python-nose 
 python-notify					
-python-numpy					
+python-numpy 
 python-oauth					
 python-oauthlib					
 python-oneconf					
@@ -252,30 +262,28 @@ python-xdg
 python-zeitgeist				
 python-zmq					
 python-zope.interface				
-python2.7					
-python2.7-dev					
-python2.7-minimal				
 ruby
+sbcl
 screen
 slime
-sbcl
+slrn
 source-highlight
 subversion
 sudo
 swi-prolog
 tar
-texlive-base
 tex-gyre					
 texlive						
+texlive-base
 texlive-base					
 texlive-bibtex-extra				
 texlive-binaries									
 texlive-extra-utils				
-texlive-font-utils				
 texlive-fonts-extra				
 texlive-fonts-extra-doc				
 texlive-fonts-recommended			
 texlive-fonts-recommended-doc			
+texlive-font-utils				
 texlive-generic-recommended			
 texlive-latex-base				
 texlive-latex-base-doc				
@@ -300,21 +308,10 @@ vim
 weka
 wget
 zip
-slrn
-build-essential 
-python-dev 
-python-setuptools 
-python-numpy 
-python-scipy 
-libatlas-dev 
-libatlas3gf-base
-python-matplotlib
-python-nose 
 "
-sudo apt-get -q install $All
 
-if 	dpkg -s slrn1 2> /dev/null > /dev/null 
-then 	echo skipping installs
+if 			dpkg -s slrn 2> /dev/null > /dev/null 
+then 		echo skipping installs
 else  	sudo apt-get -q install $All
 	      sudo pip install --user --install-option="--prefix=" -U scikit-learn
 fi
