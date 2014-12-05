@@ -1,3 +1,6 @@
+install :
+	@ echo "bash install.sh Github_User Github_User_Email"
+
 typo:
 	- git status
 	- git commit -am "fixing minor typo"
