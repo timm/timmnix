@@ -35,6 +35,10 @@ links dotemacs .emacs
 links dotvim .vimrc
 links tnix tnix
 
+if [ ! -f "$HOME/.bash_profile" ]; then
+	echo ". tnix" > $HOME/.bash_pofile
+fi
+
 chmod +x $HOME/hi
 
 echo  "configuring config for [$1] at [$2] ..."
