@@ -10,7 +10,14 @@ echo creating dirs ...
 mkdir -p $HOME/tmp/backup
 
 echo creating config ...
-ln -sf $HOME/timmnix/dotemacs  $HOME/.emacs
+if [ ! -f "$HOME/.vimrc" ]; then
+	echo "      .vimrc"
+	ln -sf $HOME/timmnix/dotvim  $HOME/.vimrc
+fi
+if [ ! -f "$HOME/.emacs" ]; then
+	echo "      .emacs"
+	ln -sf $HOME/timmnix/dotemacs  $HOME/.emacs
+fi
 
 echo  "configuring config for [$1] at [$2] ..."
 git config user.name "$1"
