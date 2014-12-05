@@ -20,6 +20,17 @@ Optinally, add to `$HOME/.bash_profile`:
 . tnix
 ```
 
+## After installation
+
+Either
+
+```
+cd 
+. tnix
+```
+
+or, if you editted `.bash_profile`, just log out and log in again.
+
 
 
 
