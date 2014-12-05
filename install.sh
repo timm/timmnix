@@ -33,7 +33,7 @@ links() {
 }
 links dotemacs .emacs
 links dotvim .vimrc
-links hi hi
+links tnix tnix
 
 chmod +x $HOME/hi
 
