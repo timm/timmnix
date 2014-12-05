@@ -6,7 +6,7 @@ typo:
 commit:
 	- git status
 	- git commit -a
-	- git push origin master
+	- git push origin master --user timm
 
 update:
 	- git pull origin master

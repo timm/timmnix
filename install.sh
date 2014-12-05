@@ -4,6 +4,9 @@ then
 	exit	
 fi
 
+mkdir -p $HOME/tmp/backup
+ln -sf $HOME/timmnix/dotemacs  $HOME/.emacs
+
 git config user.name "$1"
 git config user.email "$2"
 
@@ -267,7 +270,4 @@ zip"
 
 sudo apt-get -q install $All
 
-cd $HOME
-mkdir -p ~/tmp/backup
-ln -sf $HOME/timmnix/dotemacs  $HOME/.emacs
 
