@@ -30,7 +30,7 @@ links dotvim .vimrc
 links tnix tnix
 
 if [ ! -f "$HOME/.bash_profile" ]; then
-	echo ". tnix" > $HOME/.bash_pofile
+	echo ". tnix" > $HOME/.bash_profile
 fi
 
 chmod +x $HOME/tnix
