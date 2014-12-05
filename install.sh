@@ -300,11 +300,23 @@ vim
 weka
 wget
 zip
-slrn"
+slrn
+build-essential 
+python-dev 
+python-setuptools 
+python-numpy 
+python-scipy 
+libatlas-dev 
+libatlas3gf-base
+python-matplotlib
+python-nose 
+"
+sudo apt-get -q install $All
 
-if 	dpkg -s slrn 2> /dev/null > /dev/null 
+if 	dpkg -s slrn1 2> /dev/null > /dev/null 
 then 	echo skipping installs
 else  	sudo apt-get -q install $All
+	      sudo pip install --user --install-option="--prefix=" -U scikit-learn
 fi
 
 
