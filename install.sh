@@ -1,15 +1,22 @@
+echo "this is timmnix (dec 2014)"
+
 if [ -z "$2" ]
 then
 	echo "usage bash install.sh USER EMAIL"
 	exit	
 fi
 
+echo creating dirs ...
 mkdir -p $HOME/tmp/backup
+
+echo creating config ...
 ln -sf $HOME/timmnix/dotemacs  $HOME/.emacs
 
+echo  "configuring config for [$1] at [$2] ..."
 git config user.name "$1"
 git config user.email "$2"
 
+echo  looking for installs ...
 All="aspell
 aspell-en
 bash
@@ -266,8 +273,12 @@ unzip
 vim
 weka
 wget
-zip"
+zip
+slrn"
 
-sudo apt-get -q install $All
+if 	dpkg -s slrn 2> /dev/null > /dev/null 
+then 	echo skipping installs
+else  	sudo apt-get -q install $All
+fi
 
 
