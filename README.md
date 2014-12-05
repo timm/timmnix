@@ -10,6 +10,10 @@ cd
 git clone  https://github.com/timm/timmnix.git
 cd timmnix
 make install
+cd ..
+. tnix
+cd timmnix
+gitting timm tim@menzies.us
 
 ```
 
