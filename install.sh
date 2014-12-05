@@ -1,4 +1,18 @@
-echo "this is timmnix (dec 2014)"
+cat<<'EOF'
+                                    _. 
+                           _.-----'' `\ 
+               __..-----'''            `.
+              <            `\.           '\ 
+              :.              `.           `\ 
+               `:.              `.           `-.
+                 `:\ Welcome      `.            `+.
+                   `:. to           `.  __.===::::;)
+                     `: TimmNix ___.__>'::::::a:f/'
+                       `.  _,===:::=-'-=-"""''
+                        '-/:::''
+                          ''
+EOF
+         
 
 if [ -z "$2" ]
 then
@@ -10,14 +24,18 @@ echo creating dirs ...
 mkdir -p $HOME/tmp/backup
 
 echo creating config ...
-if [ ! -f "$HOME/.vimrc" ]; then
-	echo "      .vimrc"
-	ln -sf $HOME/timmnix/dotvim  $HOME/.vimrc
-fi
-if [ ! -f "$HOME/.emacs" ]; then
-	echo "      .emacs"
-	ln -sf $HOME/timmnix/dotemacs  $HOME/.emacs
-fi
+
+links() {
+	if [ ! -f "$HOME/$2" ]; then
+		echo "      $2"
+		ln -sf $HOME/timmnix/$1  $HOME/$2
+  fi
+}
+links dotemacs .emacs
+links dotvim .vimrc
+links hi hi
+
+chmod +x $HOME/hi
 
 echo  "configuring config for [$1] at [$2] ..."
 git config user.name "$1"
