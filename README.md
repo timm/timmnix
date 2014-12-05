@@ -6,8 +6,8 @@ unix config utils
 ## Installation
 
 ```
-cd $HOME
-git clone 
+cd 
+git clone  https://github.com/timm/timmnix.git
 cd timmnix
 # this next step may take a while
 bash install.sh USER EMAIL 
