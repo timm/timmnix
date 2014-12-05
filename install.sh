@@ -14,12 +14,6 @@ cat<<'EOF'
 EOF
          
 
-if [ -z "$2" ]
-then
-	echo "usage bash install.sh USER EMAIL"
-	exit	
-fi
-
 echo creating dirs ...
 mkdir -p $HOME/tmp/backup
 
@@ -39,11 +33,7 @@ if [ ! -f "$HOME/.bash_profile" ]; then
 	echo ". tnix" > $HOME/.bash_pofile
 fi
 
-chmod +x $HOME/hi
-
-echo  "configuring config for [$1] at [$2] ..."
-git config user.name "$1"
-git config user.email "$2"
+chmod +x $HOME/tnix
 
 echo  looking for installs ...
 
@@ -314,10 +304,10 @@ wget
 zip
 "
 
-if 			dpkg -s slrn 2> /dev/null > /dev/null 
-then 		echo skipping installs
+if 	dpkg -s slrn 2> /dev/null > /dev/null 
+then 	echo skipping installs
 else  	sudo apt-get -q install $All
-	      sudo pip install --user --install-option="--prefix=" -U scikit-learn
+	sudo pip install --user --install-option="--prefix=" -U scikit-learn
 fi
 
 

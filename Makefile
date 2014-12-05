@@ -1,5 +1,5 @@
 install :
-	@ echo "bash install.sh Github_User Github_User_Email"
+	bash install.sh
 
 typo:
 	- git status

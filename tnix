@@ -1,6 +1,8 @@
 export EDITOR="/usr/bin/vim"
 
 gitting() {
+	git config user.name "$1"
+	git config user.email "$2"
 	git config --global credential.helper cache
 	git config credential.helper 'cache --timeout=3600'
 }
