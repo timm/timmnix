@@ -8,15 +8,15 @@ me=/afs/unity.ncsu.edu/users/$1/$2
 
 if [ ! -d "$me" ] 
 then
-	echo "Can't find $me"
+	echo "Can not find $me"
 	exit
 fi
 
-dotemacs="$me/timmnix/dotemacs"
-dotvim="$me/timmnix/dotvim"
+dotemacs="$me/gits/timmnix/dotemacs"
+dotvim="$me/gits/timmnix/dotvim"
 
 alias emacs="emacs -q -l $dotemacs " 
-alias vim='vim -N -i NONE -u "$dotvim "
+alias vim="vim -N -i NONE -u $dotvim "
 
 export EDITOR="/usr/bin/vim"
 
@@ -48,6 +48,6 @@ here() {
 	cd $1; basename $PWD 
 }
 tnix() { 
-	cd; . tnix; cd -      }
+	cd; . tnix; cd -     
 }
-#export PROMPT_COMMAND='echo  -ne "\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \! "'
+export PROMPT_COMMAND='echo  -ne "\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \! "'
