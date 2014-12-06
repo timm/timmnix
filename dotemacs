@@ -47,10 +47,7 @@
 
 (progn
   (setq inhibit-startup-message t)
-  (setq backup-directory-alist nil)
-  (setq backup-directory-alist
-	(cons (cons "\.*$" (expand-file-name "~/tmp/backup"))
-	      backup-directory-alist))
+  (setq make-backup-files nil) 
   (global-font-lock-mode t)
   (xterm-mouse-mode t)
   (show-paren-mode t)
@@ -89,7 +86,6 @@
        '(("\.pl" . prolog-mode)
 	 ("\.md" . markdown-mode)) 
     auto-mode-alist))
-
 
 (setq prolog-indent-width 2
             prolog-electric-dot-flag t

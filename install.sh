@@ -15,14 +15,6 @@ EOF
          
 
 echo creating dirs ...
-My=$HOME/
-
-e() {
-    if   [ "$DISPLAY" ]
-    then emacs -q -l $dot $* &
-    else emacs -q -l $dot $* 
-    fi
-}
 
 mkdir -p $HOME/afs/tmp/backup
 mkdir -p $HOME/afs/bin

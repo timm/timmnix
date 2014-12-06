@@ -1,5 +1,6 @@
-set backup
-set backupdir=~/tmp/backup  " <--- need to create someplace to write temp files
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
+
 "ascii mouse
 set mouse=a
 "place buffer name into window title
