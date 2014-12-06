@@ -1,4 +1,25 @@
+if [ -z "$2" ]; then
+	echo "usage: tnix initial uniyId"
+	echo "e.g. : tnix t tjmenzie"
+	exit
+fi
+
+me=/afs/unity.ncsu.edu/users/$1/$2
+
+if [ ! -f "$me" ]; 
+	echo "Can't find $me"
+	exit
+fi
+
+dotemacs=$me/timmnix/dotemacs
+dotvim=$me/timmnix/dotvim
+
+e() {
+    emacs -q -l $dotemacs $* 
+}
+
 export EDITOR="/usr/bin/vim"
+export My="/afs/$1"
 
 gitting() {
 	git config user.name "$1"

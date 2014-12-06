@@ -15,7 +15,17 @@ EOF
          
 
 echo creating dirs ...
-mkdir -p $HOME/tmp/backup
+My=$HOME/
+
+e() {
+    if   [ "$DISPLAY" ]
+    then emacs -q -l $dot $* &
+    else emacs -q -l $dot $* 
+    fi
+}
+
+mkdir -p $HOME/afs/tmp/backup
+mkdir -p $HOME/afs/bin
 
 echo creating config ...
 
