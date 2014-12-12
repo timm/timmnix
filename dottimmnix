@@ -1,0 +1,42 @@
+me=`pwd`
+
+dotemacs="$me/gits/timmnix/dotemacs"
+dotvim="$me/gits/timmnix/dotvim"
+
+alias emacs="emacs -q -l $dotemacs " 
+alias vim="vim -N -i NONE -u $dotvim "
+
+export EDITOR="/usr/bin/vim"
+
+gitting() {
+	git config user.name "$1"
+	git config user.email "$2"
+	git config --global credential.helper cache
+	git config credential.helper 'cache --timeout=3600'
+}
+
+export PATH="$HOME/bin:$PATH" 
+export PS1="me:\e[7m\w\e[27m [\!]$ "
+export PROMPT_COMMAND='echo -ne "\033]0;: `pwd`\007"'
+export SVN_EDITOR=`which vi`
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESS=' -N -R '
+
+GREP_OPTIONS='--color=auto'
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;37m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+here() { 
+	cd $1; basename $PWD 
+}
+tnix() { 
+	cd; . tnix; cd -     
+}
+export PROMPT_COMMAND='echo  -ne "TNIX:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \! "'
+
