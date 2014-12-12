@@ -14,28 +14,8 @@ cat<<'EOF'
 EOF
          
 
-echo creating dirs ...
-
-mkdir -p $HOME/afs/tmp/backup
-mkdir -p $HOME/afs/bin
-
-echo creating config ...
-
-links() {
-	if [ ! -f "$HOME/$2" ]; then
-		echo "      $2"
-		ln -sf $HOME/timmnix/$1  $HOME/$2
-  fi
-}
-links dotemacs .emacs
-links dotvim .vimrc
-links tnix tnix
-
-if [ ! -f "$HOME/.bash_profile" ]; then
-	echo ". tnix" > $HOME/.bash_profile
-fi
-
-chmod +x $HOME/tnix
+cp tnix .
+chmod +x tnix
 
 echo  looking for installs ...
 
