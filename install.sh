@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cat<<'EOF'
                          _. 
                 _.-----'' `\ 
@@ -14,8 +16,6 @@ cat<<'EOF'
 EOF
          
 
-cp tnix .
-chmod +x tnix
 
 echo  looking for installs ...
 
