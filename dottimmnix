@@ -39,5 +39,5 @@ here() {
 tnix() { 
 	cd; . tnix; cd -     
 }
-export PROMPT_COMMAND='echo  -ne "TNIX:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \! "'
+export PROMPT_COMMAND='echo  -ne "TNIX:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \!> "'
 
