@@ -23,21 +23,26 @@
 
 (setq vc-follow-symlinks t)
 (setq flyspell-issue-welcome-flag nil) ;
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-emacs-nw)))
+
+(defun color1 ()
+	(interactive)
+	(require 'color-theme)
+	(eval-after-load "color-theme"
+  		'(prog	n
+     		(color-theme-initialize)
+     		(color-theme-emacs-nw))))
 
 ;(when (eq window-system 'x)
  ;     (set-face-attribute 'default nil :height 100))
 
-(when (not (eq window-system 'x))
-  (require 'color-theme)
-  (eval-after-load "color-theme"
-    '(progn
-       (color-theme-initialize)
-       (color-theme-charcoal-black))))
+(defun color2 ()
+       (when (not (eq window-system 'x))
+       	     (require 'color-theme)
+  	     (eval-after-load "color-theme"
+    	     		      '(progn
+      			       (color-theme-initialize)
+			(color-theme-charcoal-black)))))
+
 
 (defun clarity () (interactive) (color-theme-clarity))
 (defun billw   () (interactive) (color-theme-billw))
@@ -53,7 +58,7 @@
   (show-paren-mode t)
   (transient-mark-mode t)
   (setq scroll-step 1)
-  (global-hl-line-mode 1)
+  (global-hl-line-mode 0)
   (setq-default fill-column 52))
 
 (global-set-key "\C-cs" 'slime-selector)
