@@ -25,9 +25,16 @@
 (setq flyspell-issue-welcome-flag nil) ;
 
 (defun color1 ()
+<<<<<<< HEAD
 	(require 'color-theme)
 	(eval-after-load "color-theme"
   	'(progn
+=======
+	(interactive)
+	(require 'color-theme)
+	(eval-after-load "color-theme"
+  		'(prog	n
+>>>>>>> 670b68cc1d7e53cfcc282979902005e59b482d4c
      		(color-theme-initialize)
      		(color-theme-emacs-nw))))
 
@@ -35,6 +42,7 @@
  ;     (set-face-attribute 'default nil :height 100))
 
 (defun color2 ()
+<<<<<<< HEAD
 	(when (not (eq window-system 'x))
 	  (require 'color-theme)
 	  (eval-after-load "color-theme"
@@ -42,6 +50,16 @@
 	       (color-theme-initialize)
 	       (color-theme-charcoal-black)))))
 	
+=======
+       (when (not (eq window-system 'x))
+       	     (require 'color-theme)
+  	     (eval-after-load "color-theme"
+    	     		      '(progn
+      			       (color-theme-initialize)
+			(color-theme-charcoal-black)))))
+
+
+>>>>>>> 670b68cc1d7e53cfcc282979902005e59b482d4c
 (defun clarity () (interactive) (color-theme-clarity))
 (defun billw   () (interactive) (color-theme-billw))
 
