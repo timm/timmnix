@@ -27,9 +27,11 @@ set incsearch
 set smartcase
 " source code indenting
 set smarttab
-set noexpandtab
+set smartindent
 set tabstop=2
 set shiftwidth=2
+set expandtab ts=2 sw=2 ai
+
 " Help for viminfo is at:  :he 'viminfo'
 "   '10  : marks will be remembered for up to 10 previously edited files
 "   "100 : will save up to 100 lines for each register

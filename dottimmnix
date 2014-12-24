@@ -5,7 +5,7 @@ dotvim="$me/gits/timmnix/dotvim"
 
 alias emacs="emacs -q -l $dotemacs " 
 alias vim="vim -N -i NONE -u $dotvim "
-alias ls="ls --color"
+#alias ls="ls --color"
 
 export EDITOR="/usr/bin/vim"
 
