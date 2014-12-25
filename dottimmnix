@@ -41,3 +41,17 @@ tnix() {
 }
 export PROMPT_COMMAND='echo  -ne "TNIX:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \!> "'
 
+cat <<'EOF'
+      
+    /\        Welcome to the Timmnix shell (v1.6)
+   {.-}       On the web: https://github.com/timm/timmnix
+  ;_.-'\        
+ {    _.}_    Happy 'acking.
+  \.-' /  `,  
+   \  |    /  To leave, type 'exit'.
+    \ |  ,/   
+ jgs \|_/      
+
+EOF
+
+

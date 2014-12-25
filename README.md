@@ -43,7 +43,7 @@ For me, that last command is
 cd /afs/unity.ncsu.edu/users/t/tjmenzie
 ```
 
-### Step2: Grad your timmnix files
+### Step2: Grap your timmnix files
 
 Recall that your home space for your permanent files is something like _/afs/unity.ncsu.edu/users/t/tjmenzie_.
 
@@ -53,9 +53,28 @@ Change to that directory and execute these commands:
 mkdir -p gits
 cd gits
 git clone https://github.com/timm/timmnix.git
-cp timmnix/tnix ..
-chmod +x ../tnix
+alias tnix="bash $HOME/gits/timmnix/tnix"
 ```
 
+### Test
+
+The command
+
+```
+tnix
+```
+
+should drop you into a little shell as follows.
+
+```
+```
+
+Type `exit` to leave this shell.
+
+### Tips
+
+This is a command line tool. If you want advice
+on tweaking, say, the fonts, see
+[here](http://www.webupd8.org/2010/07/7-of-best-ubuntu-terminal-fixed-width.html).
 
 
