@@ -33,7 +33,7 @@ To exit tnix, type control-D.
 ### Step1: Fire up a Virtual Machine
 
 + Got to https://vcl.ncsu.edu, make a new reservation. 
-+ Select _\_timmnix_ as the image and after that, if offered a list of iamges, select the latest one.
++ Select _\_timmnix_ as the image and after that, if offered a list of images, select the latest one.
 + Login using ssh UnityID@ipaddress where `ipaddress` goes from the VCL login screens.
 + Change directories to your permanent ncstate space. 
  
@@ -50,23 +50,36 @@ Recall that your home space for your permanent files is something like _/afs/uni
 Change to that directory and execute these commands:
 
 ```
-mkdir -p gits
-cd gits
-git clone https://github.com/timm/timmnix.git
-alias tnix="bash $HOME/gits/timmnix/tnix"
+Here=`pwd`
+git clone https://github.com/timm/timmnix.git gits/timmnix
+ln -sf $Here/gits/timmnix/tnix $Here/tnix
 ```
+
+Now, to start _timmnix_, change to the top of your home space and type `./tnix`.
 
 ### Test
 
 The command
 
 ```
-tnix
+cd #to your home space
+./tnix
 ```
 
 should drop you into a little shell as follows.
 
 ```
+
+    /\        Welcome to the Timmnix shell (v1.6)
+   {.-}       On the web: https://github.com/timm/timmnix
+  ;_.-'\        
+ {    _.}_    "Contrary to popular belief, Unix is user
+  \.-' /  `,   friendly. It just happesn to be very selective
+   \  |    /   about who it decides to make friends with."
+    \ |  ,/    -- unknown
+ jgs \|_/      
+              To leave, type 'exit'.
+
 ```
 
 Type `exit` to leave this shell.
