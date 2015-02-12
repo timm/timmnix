@@ -1,7 +1,8 @@
 me=`pwd`
 
-dotemacs="$me/gits/timmnix/dotemacs"
-dotvim="$me/gits/timmnix/dotvim"
+base="$me/gits/timm"
+dotemacs="$base/timmnix/dotemacs"
+dotvim="$base/timmnix/dotvim"
 
 alias emacs="emacs -nw -q -l $dotemacs " 
 alias vim="vim -N -i NONE -u $dotvim "
@@ -34,7 +35,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 e() {
-  exec /Applications/Emacs.app/Contents/MacOS/emacs-bin -q -l $dotemacs "$@"
+  exec /Applications/Emacs.app/Contents/MacOS/Emacs -q -l $dotemacs "$@" &
 }
 
 here() { 

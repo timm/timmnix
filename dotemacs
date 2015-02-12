@@ -1,4 +1,5 @@
 ; -*- elisp -*-
+(setq ispell-program-name "/usr/local/bin/ispell")
 
 (setq lua-indent-level 2)
 
