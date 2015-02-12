@@ -34,7 +34,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 e() {
-	/Applications/Emacs.app/Contents/MacOS/Emacs -q -l $dotemacs "$@"
+  exec /Applications/Emacs.app/Contents/MacOS/emacs-bin -q -l $dotemacs "$@"
 }
 
 here() { 
