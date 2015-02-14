@@ -1,5 +1,7 @@
 ; -*- elisp -*-
 (setq ispell-program-name "/usr/local/bin/ispell")
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(load (expand-file-name "~/.local/opt/quicklisp/slime-helper.el"))
 
 (setq lua-indent-level 2)
 
