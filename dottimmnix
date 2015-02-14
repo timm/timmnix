@@ -1,12 +1,13 @@
 me=`pwd`
 
 base="$me/gits/timm"
-dotemacs="$base/timmnix/dotemacs"
-dotvim="$base/timmnix/dotvim"
+TNIX="$base/timmnix"
+dotemacs="$TNIX/dotemacs"
+dotvim="$TNIX/dotvim"
 
 alias emacs="emacs -nw -q -l $dotemacs " 
 alias vim="vim -N -i NONE -u $dotvim "
-#alias ls="ls --color"
+alias ls="ls -G"
 
 export EDITOR="/usr/bin/vim"
 
