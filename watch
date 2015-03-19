@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ./watch python demo.py
+
 com="$1"
 file="$2"
 
