@@ -1,0 +1,4 @@
+t() {
+	f="$HOME/gits/timm/timmnix/tnix"
+	[ -f "$f" ] && . "$f"
+}
