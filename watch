@@ -1,0 +1,20 @@
+#!/bin/bash
+
+com="$1"
+file="$2"
+
+tmp=/tmp/$USER
+tick=$tmp/$$
+
+mkdir -p $tmp
+touch $tick
+
+while true; do
+    sleep 1
+    if [ "$file" -nt "$tick" ]; then
+	touch $tick
+	$com $file
+    fi
+done
+
+
