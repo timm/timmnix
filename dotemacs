@@ -94,6 +94,13 @@
                             tab-width 2)
        (setq python-indent 2)))
 
+(add-hook 'awk-mode-hook
+   (lambda ()		    
+       (setq-default c-electric-flag nil)
+       (setq indent-tabs-mode nil
+       	     tab-width 2)
+       (setq awk-indent 2)))
+
 (setq auto-mode-alist 
       (append
        '(("\.pl" . prolog-mode)
