@@ -18,6 +18,8 @@ alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
 
+_gits=$(ls $HOME/gits | gawk '{printf(":'$HOME'/gits/%s",$1)}')
+export CDPATH=".$_gits"
 
 export EDITOR="/usr/bin/vim"
 
