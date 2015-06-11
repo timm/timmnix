@@ -8,6 +8,7 @@ dotvim="$TNIX/dotvim"
 alias emacs="emacs -nw -q -l $dotemacs " 
 alias vim="vim -N -i NONE -u $dotvim "
 alias ls="ls -G"
+alias p="python -B -3 "
 
 
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
