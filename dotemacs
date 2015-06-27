@@ -5,8 +5,13 @@
 ;(load "~/quicklisp/setup.lisp")
 ;(load (expand-file-name "~/.local/opt/quicklisp/slime-helper.el"))
 
+(add-to-list 'load-path "~/gits/timm/timmnix/")
 
-
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (setq lua-indent-level 2)
 
