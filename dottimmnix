@@ -34,9 +34,12 @@ mac() {
       # from http://natelandau.com/my-mac-osx-bash_profile/
       alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
       alias less='less -FSRXc'                    # Preferred 'less' implementation
-   alias f='open -a Finder ./' 
+      alias f='open -a Finder ./' 
       export CLICOLOR=1
       export LSCOLORS=ExFxBxDxCxegedabagacad
+      PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+      MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+      $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 }
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }	
 

@@ -103,7 +103,9 @@
 
 (setq auto-mode-alist 
       (append
-       '(("\.pl" . prolog-mode)
+       '(
+         ("\.py" . python-mode)
+         ("\.pl" . prolog-mode)
 	 ("\.md" . markdown-mode)) 
     auto-mode-alist))
 
