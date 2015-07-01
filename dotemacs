@@ -109,9 +109,9 @@
 (setq auto-mode-alist 
       (append
        '(
-         ("\.py" . python-mode)
-         ("\.pl" . prolog-mode)
-	 ("\.md" . markdown-mode)) 
+         ("\.py$" . python-mode)
+         ("\.pl$" . prolog-mode)
+	 ("\.md$" . markdown-mode)) 
     auto-mode-alist))
 
 (setq prolog-indent-width 2
