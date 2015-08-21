@@ -6,3 +6,10 @@ brew install git markdown pandoc wget gawk \
 sudo easy_install pip
 pip install "requests[security]"
 sudo -H pip install --user --install-option="--prefix=" -U scikit-learn
+
+echo "need full xcode installed"
+brew install macvim
+brew linkapps macvim
+#macvim medeealy
+#skim
+
