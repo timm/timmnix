@@ -1,6 +1,3 @@
-install :
-	bash install.sh
-
 typo:
 	- git status
 	- git commit -am "fixing minor typo"
@@ -17,4 +14,6 @@ update:
 status:
 	- git status
 
-
+gitting:
+	git config --global credential.helper cache
+	git config credential.helper 'cache --timeout=3600'
