@@ -1,5 +1,5 @@
 typo:
-	- git status
+	- git    status
 	- git commit -am "fixing minor typo"
 	- git push origin master
 
