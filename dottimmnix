@@ -27,10 +27,17 @@ export EDITOR="/usr/bin/vim"
 
 gots() {
        for dir in $(echo $_gits | tr \: \  ); do
-          (echo $dir
-	   cd $dir
-	   $*
-	  )
+	   for d in $(ls $dir); do
+	      if [ -d "$dir/$d" ]; then
+	         (cd $dir/$d
+	          if [ -f Makefile ]; then
+		     make $*
+	             echo $dir/$d
+		     read
+		  fi
+	        )
+              fi
+	   done
        done
 }
 
