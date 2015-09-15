@@ -25,6 +25,15 @@ export CDPATH=".$_gits"
 
 export EDITOR="/usr/bin/vim"
 
+gots() {
+       for dir in $(echo $_gits | tr \: \  ); do
+          (echo $dir
+	   cd $dir
+	   $*
+	  )
+       done
+}
+
 gitting() {
 	git config user.name "$1"
 	git config user.email "$2"
