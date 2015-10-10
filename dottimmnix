@@ -12,7 +12,6 @@ alias vim="vim -N -i NONE -u $dotvim "
 alias ls="ls -G"
 alias p="python -B -3 "
 
-
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -28,13 +27,13 @@ export CDPATH=".$_gits"
 export EDITOR="/usr/bin/vim"
 
 mock() {
-       root=$(git rev-parse --show-toplevel)
-       if [ -d "$root" ]; then
-       	    (cd $root;      
-       	    make $*)
-       else
-	   echo "mock: nothing to do"
-       fi
+    root=$(git rev-parse --show-toplevel)
+    if [ -d "$root" ]; then
+       	(cd $root;      
+       	 make $*)
+    else
+	echo "mock: nothing to do"
+    fi
 }
 gots() {
        for dir in $(echo $_gits | tr \: \  ); do
