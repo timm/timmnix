@@ -5,6 +5,21 @@
 ;(load "~/quicklisp/setup.lisp")
 ;(load (expand-file-name "~/.local/opt/quicklisp/slime-helper.el"))
 
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
+
+
+    (setq tab-width 2) 
+
 (add-to-list 'load-path "~/gits/timm/timmnix/")
 
 (autoload 'markdown-mode "markdown-mode"
@@ -98,6 +113,14 @@
                (setq indent-tabs-mode nil
                             tab-width 2)
        (setq python-indent 2)))
+
+(add-hook 'julia-mode-hook
+   (lambda ()
+               (setq indent-tabs-mode nil
+                            tab-width 2)
+	       (setq julia-indent-offset 2)
+               (setq julia-indent-level 2)))
+
 
 (add-hook 'awk-mode-hook
    (lambda ()		    
