@@ -26,11 +26,42 @@ export CDPATH=".$_gits"
 
 export EDITOR="/usr/bin/vim"
 
+makefile0() { cat <<EOF
+
+typo: ready
+	- git status
+	- git commit -am "fixing minor typo"
+	- git push origin master
+
+commit: ready
+	- git status
+	- git commit -a
+	- git push origin master
+
+update: ready
+	- git pull origin master
+
+status: ready
+	- git status
+
+ready:
+	git config --global credential.helper cache
+	git config credential.helper 'cache --timeout=3600'
+
+all: status commit update
+
+EOF
+}
+
 mock() {
     root=$(git rev-parse --show-toplevel)
     if [ -d "$root" ]; then
-       	(cd $root;      
-       	 make $*)
+       	(cd $root;
+	 if [ ! -f Makefile ]; then
+	     makefile0 > Makefile
+	     git add Makefile
+	 fi
+       	 make $* ;)
     else
 	echo "mock: nothing to do"
     fi
