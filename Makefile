@@ -28,3 +28,5 @@ updates:
 
 commits:
 	cd $(HOME)/gits; $(foreach d,$(repos),cd $d &&  [[ -f Makefile ]] && make typo;)
+
+all: status typo update
