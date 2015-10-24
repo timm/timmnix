@@ -2,7 +2,7 @@
 brew update
 brew install emacs --cocoa
 brew linkapps emacs
-brew install git markdown pandoc wget gawk \
+brew install htop git markdown pandoc wget gawk \
      imagemagick ispell gnuplot tree
 sudo easy_install pip
 pip install "requests[security]"
@@ -14,6 +14,9 @@ brew linkapps macvim
 
 brew install caskroom/cask/brew-cask
 brew cask install mactex
+
+brew tap staticfloat/julia
+brew install julia
 
 # for slime
 #
@@ -30,7 +33,7 @@ brew cask install mactex
 # then
 #1)  M-x package-list-packages
 #2) U
-#3) search for slime. mark. then "x" (execute installs)
+#3) search for slime, julia mark. then "x" (execute installs)
 #brew google-chrome
 #brew vlc
 #brew bartender
