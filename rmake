@@ -1,12 +1,13 @@
 Makefile = $(PWD)/rmake
 Make     = $(MAKE) --no-print-directory 
-Dirs     = $(shell find . -type d -print | grep -v \.git)
+Dirs     = $(shell find . -type d -print | grep -v \.git | grep -v \.DS_Store)
 
 everywhere:
-	@$(foreach Dir,$(Dirs), \
-             (cd "$(Dir)"; \
-	      $(MAKE) -f $(Makefile) Dir="$(Dir)" there);)
+	@$(foreach Dir,$(Dirs),\
+	      	(cd $(Dir); \
+                 $(MAKE) -f $(Makefile) Dir=$(Dir) there;);)
 
+# write this code, assuming you have landed in a sub-directory
 there:
 	@echo $(Dir)
 	@ls | wc -l
