@@ -2,7 +2,7 @@ Makefile = $(PWD)/rmake
 Make     = $(MAKE) --no-print-directory 
 Dirs     = $(shell find . -type d -print | grep -v \.git | grep -v \.DS_Store)
 
-everywhere:
+everythere:
 	@$(foreach Dir,$(Dirs),\
 	      	(cd $(Dir); \
                  $(MAKE) -f $(Makefile) Dir=$(Dir) there;);)
