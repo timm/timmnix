@@ -1,32 +1,49 @@
-typo:
-	- git    status
-	- git commit -am "fixing minor typo"
-	- git push origin master
+SHELL := /bin/bash
+Make     = $(MAKE) --no-print-directory
+Makefile = $(PWD)/Makefile
 
-commit:
-	- git status
-	- git commit -a
-	- git push origin master 
+# for recursive stuff,  what do to each directory
+Act      = action
 
-update:
-	- git pull origin master
+# find all directories that are not . files
+Dirs     = $(shell find . -type d  -not -path '*/\.*')
 
-status:
-	- git status
+actions:
+	@$(foreach Dir,$(Dirs),\
+	      	(cd $(Dir); \
+                 $(MAKE) -f $(Makefile) Dir=$(Dir) $(Act););)
+
+# write this code, assuming you have landed in a $(Dir)
+action:
+	@echo $(Dir)
+	@ls | wc -l
+
+
+typo:  ready 
+	@- git status
+	@- git commit -am "saving"
+	@- git push origin master
+
+commit:  ready 
+	@- git status
+	@- git commit -a 
+	@- git push origin master
+
+update:; @- git pull origin master
+status:; @- git status
+
+ready: gitting 
 
 gitting:
-	git config --global credential.helper cache
-	git config credential.helper 'cache --timeout=3600'
+	@git config --global credential.helper cache
+	@git config credential.helper 'cache --timeout=3600'
 
-repos=$(shell find $(HOME)/gits -type d -depth 2)
+your:
+	@git config --global user.name "Your name"
+	@git config --global user.email your@email.address
 
-typos:
-	cd $(HOME)/gits; $(foreach d,$(repos),cd $d && [[ -f Makefile ]] && make typo;)
+timm:
+	@git config --global user.name "Tim Menzies"
+	@git config --global user.email tim.menzies@gmail.com
 
-updates:
-	cd $(HOME)/gits; $(foreach d,$(repos),cd $d &&  [[ -f Makefile ]] && make typo;)
 
-commits:
-	cd $(HOME)/gits; $(foreach d,$(repos),cd $d &&  [[ -f Makefile ]] && make typo;)
-
-all: status typo update

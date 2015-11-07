@@ -1,13 +1,17 @@
-Makefile = $(PWD)/rmake
-Make     = $(MAKE) --no-print-directory 
-Dirs     = $(shell find . -type d -print | grep -v \.git | grep -v \.DS_Store)
+# -*- makefile -*-
+SHELL := /bin/bash
+Make     = $(MAKE) --no-print-directory
 
-everythere:
+Act      = action
+Makefile = $(PWD)/rmake
+Dirs     = $(shell find . -type d  -not -path '*/\.*')
+
+actions:
 	@$(foreach Dir,$(Dirs),\
 	      	(cd $(Dir); \
-                 $(MAKE) -f $(Makefile) Dir=$(Dir) there;);)
+                 $(MAKE) -f $(Makefile) Dir=$(Dir) $(Act););)
 
 # write this code, assuming you have landed in a sub-directory
-there:
+action:
 	@echo $(Dir)
 	@ls | wc -l
