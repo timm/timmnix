@@ -1,0 +1,3 @@
+all:
+	@echo "\\nWARNING:\\nDo not use makefile."
+	@echo "Rather, change to the root of this githun repo and 'make' from there."
