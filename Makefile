@@ -2,6 +2,18 @@ SHELL := /bin/bash
 Make     = $(MAKE) --no-print-directory
 Makefile = $(PWD)/Makefile
 
+
+# conditonal set for vars
+#ifeq ($(UNAME),Darwin)
+#     SHELL := /opt/local/bin/bash
+#     OS_X  := true
+# else ifeq (,$(wildcard /etc/redhat-release))
+#     OS_RHEL := true
+# else
+#     OS_DEB  := true
+#     SHELL := /bin/bash
+# endif 
+
 # for recursive stuff,  what do to each directory
 Act      = action
 
