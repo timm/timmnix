@@ -153,13 +153,13 @@ cat <<'EOF'
     /\        Welcome to the Timmnix shell (v1.6)
    {.-}       On the web: https://github.com/timm/timmnix
   ;_.-'\        
- {    _.}_    "Contrary to popular belief, Unix is user
-  \.-' /  `,   friendly. It just happens to be very selective
-   \  |    /   about who it decides to make friends with."
-    \ |  ,/    -- unknown
- jgs \|_/      
-              To leave, type 'exit'.
-
+ {    _.}_    "Contrary to popular belief, Unix is user friendly.
+  \.-' /  `,   It just happens to be very selective about who it
+   \  |    /   decides to make friends with." -- unknown
+    \ |  ,/    
+ jgs \|_/     To leave, type 'exit'.
+              Then again, why would you want to leave all this?
+              
 EOF
 
 
