@@ -53,6 +53,34 @@ all: status typo update
 EOF
 }
 
+typos() {
+  Here=$(pwd)
+  for d in */*; do 
+	if [ -d "$d" ] ; then
+	     	echo ""; echo""; echo ""
+		echo "====== $d ========"
+		echo ""; echo""; echo ""
+		cd $d
+	 	make typo
+		cd $Here
+	fi
+  done | tee typos.log
+}
+
+updates() {
+  Here=$(pwd)
+  for d in */*; do 
+	if [ -d "$d" ] ; then
+	     	echo ""; echo""; echo ""
+		echo "====== $d ========"
+		echo ""; echo""; echo ""
+		cd $d
+	 	make update
+		cd $Here
+	fi
+  done | tee updates.log
+}
+
 mock() {
     root=$(git rev-parse --show-toplevel)
     if [ -d "$root" ]; then
