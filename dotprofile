@@ -14,7 +14,7 @@ alias echor='>&2 echo'
 
 mock1() {
 	if [ ! -f Makefile ]; then
-		echo "nothing to do
+		echo "nothing to do"
 	else
        	 make $* 
     fi
