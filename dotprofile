@@ -2,3 +2,26 @@ t() {
 	f="$HOME/gits/timm/timmnix/tnix"
 	[ -f "$f" ] && . "$f"
 }
+
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+alias echor='>&2 echo'
+
+mock() {
+    root=$(git rev-parse --show-toplevel)
+    if [ -d "$root" ]; then
+       	(cd $root;
+	 if [ ! -f Makefile ]; then
+	     makefile0 > Makefile
+	     git add Makefile
+	 fi
+       	 make $* ;)
+    else
+	echo "mock: nothing to do"
+    fi
+}
