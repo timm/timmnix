@@ -12,15 +12,26 @@ alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias echor='>&2 echo'
 
+#!/bin/bash
+# (C) tim.menzies@gmail.com 2016, http://unlicense.org/
+
+# My favorite repo trick
+# Avoids have Makefiles all over the sub-directories.
+# Calls to "make" jump to  root of current repo, and "makes" there.
+
 make1() {
-        if [ ! -f Makefile ]; then
-                echo "nothing to do"
-        else
-         /usr/bin/make $* 
-    fi
+  if [ ! -f Makefile ]; then
+    echo "nothing to do"
+  else
+    /usr/bin/make $* 
+  fi
 }
 
 make() {
-    root=$(git rev-parse --show-toplevel)
-   ( cd $root; make1)
+  root=$(git rev-parse --show-toplevel)
+  if [ -n "$root" ]; then
+    ( cd $root; make1 $*)
+  else
+    /usr/bin/make $*
+  fi
 }
