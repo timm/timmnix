@@ -12,15 +12,15 @@ alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias echor='>&2 echo'
 
-mock1() {
-	if [ ! -f Makefile ]; then
-		echo "nothing to do"
-	else
-       	 make $* 
+make1() {
+        if [ ! -f Makefile ]; then
+                echo "nothing to do"
+        else
+         /usr/bin/make $* 
     fi
 }
 
-mock() {
+make() {
     root=$(git rev-parse --show-toplevel)
-    (cd $root; mock1)
+   ( cd $root; make1)
 }
