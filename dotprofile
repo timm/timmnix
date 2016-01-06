@@ -25,7 +25,7 @@ mystuff() {
 }
 
 rerun() {
-  /usr/local/bin/rerun " date +'%S'; python -B $1.py | /usr/bin/column -s\ -t -e"
+  /usr/local/bin/rerun " date +'%S'; python -B $1.py | /usr/bin/column -s\  -t -e"
 }
 
 # My favorite repo trick
