@@ -16,6 +16,14 @@ alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias echor='>&2 echo'
 alias c="/usr/bin/column -s\  -t -e "
 
+hiagain() {
+	wget -O $HOME/hi https://raw.githubusercontent.com/timm/timmnix/master/dotprofile
+}
+mystuff() { 
+	sudo pip install markdown pygments rerun
+	sudo apt-get install ispell emacs-goodies-el
+}
+
 rerun() {
   /usr/local/bin/rerun "python -B $1.py | /usr/bin/column -s\ -t -e"
 }
