@@ -20,7 +20,7 @@ hiagain() {
 	wget -O $HOME/hi https://raw.githubusercontent.com/timm/timmnix/master/dotprofile
 }
 mystuff() { 
-	sudo pip install markdown pygments rerun
+	sudo pip install markdown pygments rerun gnuplotlib
 	sudo apt-get install ispell emacs-goodies-el gnuplot
 }
 
