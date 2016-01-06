@@ -21,7 +21,7 @@ hiagain() {
 }
 mystuff() { 
 	sudo pip install markdown pygments rerun
-	sudo apt-get install ispell emacs-goodies-el
+	sudo apt-get install ispell emacs-goodies-el gnuplot
 }
 
 rerun() {
