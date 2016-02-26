@@ -33,11 +33,15 @@ rerun() {
 # Calls to "make" jump to  root of current repo, and "makes" there.
 
 make1() {
-  if [ ! -f Makefile ]; then
+    if [ -f Makefile ]; then
+	/usr/bin/make $*
+	return 0
+    fi
+    if [ -f make.mk ]; then
+	/usr/bin/make -f make.mk $*
+	return 0
+    fi	    
     echo "nothing to do"
-  else
-    /usr/bin/make $* 
-  fi
 }
 
 make() {
