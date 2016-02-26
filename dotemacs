@@ -59,6 +59,7 @@
   (transient-mark-mode t)
   (setq scroll-step 1)
   (global-hl-line-mode 0)
+  (setq-default indent-tabs-mode nil)
   (setq-default fill-column 52))
 
 (global-set-key "\C-cs" 'slime-selector)
