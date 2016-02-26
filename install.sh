@@ -79,6 +79,7 @@ gawk
 gimp
 git
 gnu-smalltalk
+gnuplot
 graphviz
 grep
 groff
@@ -103,6 +104,7 @@ luarocks
 make
 nano
 pandoc
+pandoc-citeproc
 python						
 python2.7					
 python2.7-dev					

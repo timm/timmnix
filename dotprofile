@@ -1,0 +1,54 @@
+#!/bin/bash
+# (C) tim.menzies@gmail.com 2016, http://unlicense.org/
+
+t() {
+	f="$HOME/gits/timm/timmnix/tnix"
+	[ -f "$f" ] && . "$f"
+}
+
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+alias echor='>&2 echo'
+alias c="/usr/bin/column -s\  -t -e "
+
+hiagain() {
+	wget -O $HOME/hi https://raw.githubusercontent.com/timm/timmnix/master/dotprofile
+}
+mystuff() { 
+	sudo pip install markdown pygments rerun gnuplotlib
+	sudo apt-get install ispell emacs-goodies-el gnuplot
+}
+
+rerun() {
+  /usr/local/bin/rerun " date +'%S'; python -B $1.py | /usr/bin/column -s\  -t -e"
+}
+
+# My favorite repo trick
+# Avoids have Makefiles all over the sub-directories.
+# Calls to "make" jump to  root of current repo, and "makes" there.
+
+make1() {
+    if [ -f Makefile ]; then
+	/usr/bin/make $*
+	return 0
+    fi
+    if [ -f make.mk ]; then
+	/usr/bin/make -f make.mk $*
+	return 0
+    fi	    
+    echo "nothing to do"
+}
+
+make() {
+  root=$(git rev-parse --show-toplevel)
+  if [ -n "$root" ]; then
+    ( cd $root; make1 $*)
+  else
+    /usr/bin/make $*
+  fi
+}

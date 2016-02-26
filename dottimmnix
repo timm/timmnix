@@ -1,13 +1,114 @@
+# -*- sh -*-
+
 me=`pwd`
 
-dotemacs="$me/gits/timmnix/dotemacs"
-dotvim="$me/gits/timmnix/dotvim"
+base="$me/gits/timm"
+TNIX="$base/timmnix"
+dotemacs="$TNIX/dotemacs"
+dotvim="$TNIX/dotvim"
 
 alias emacs="emacs -nw -q -l $dotemacs " 
 alias vim="vim -N -i NONE -u $dotvim "
-#alias ls="ls --color"
+alias ls="ls -G"
+alias p="python -B -3 "
+
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+alias echor='>&2 echo'
+
+_gits=$(ls $HOME/gits | gawk '{printf(":'$HOME'/gits/%s",$1)}')
+export CDPATH=".$_gits"
 
 export EDITOR="/usr/bin/vim"
+
+makefile0() { cat <<EOF
+
+typo: ready
+	- git status
+	- git commit -am "fixing minor typo"
+	- git push origin master
+
+commit: ready
+	- git status
+	- git commit -a
+	- git push origin master
+
+update: ready
+	- git pull origin master
+
+status: ready
+	- git status
+
+ready:
+	git config --global credential.helper cache
+	git config credential.helper 'cache --timeout=3600'
+
+all: status typo update
+
+EOF
+}
+
+typos() {
+  Here=$(pwd)
+  for d in */*; do 
+	if [ -d "$d" ] ; then
+	     	echo ""; echo""; echo ""
+		echo "====== $d ========"
+		echo ""; echo""; echo ""
+		cd $d
+	 	make typo
+		cd $Here
+	fi
+  done | tee typos.log
+}
+
+updates() {
+  Here=$(pwd)
+  for d in */*; do 
+	if [ -d "$d" ] ; then
+	     	echo ""; echo""; echo ""
+		echo "====== $d ========"
+		echo ""; echo""; echo ""
+		cd $d
+	 	make update
+		cd $Here
+	fi
+  done | tee updates.log
+}
+
+mock() {
+    root=$(git rev-parse --show-toplevel)
+    if [ -d "$root" ]; then
+       	(cd $root;
+	 if [ ! -f Makefile ]; then
+	     makefile0 > Makefile
+	     git add Makefile
+	 fi
+       	 make $* ;)
+    else
+	echo "mock: nothing to do"
+    fi
+}
+gots() {
+       for dir in $(echo $_gits | tr \: \  ); do
+	   for d in $(ls $dir); do
+	      if [ -d "$dir/$d" ]; then
+	         (cd $dir/$d
+	          if [ -f Makefile ]; then
+		     make $*
+	             echo $dir/$d
+		     read
+		  fi
+	        )
+              fi
+	   done
+       done
+}
 
 gitting() {
 	git config user.name "$1"
@@ -16,12 +117,42 @@ gitting() {
 	git config credential.helper 'cache --timeout=3600'
 }
 
+mac() {
+      # from http://natelandau.com/my-mac-osx-bash_profile/
+      alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
+      alias less='less -FSRXc'                    # Preferred 'less' implementation
+      alias f='open -a Finder ./' 
+      export CLICOLOR=1
+      export LSCOLORS=ExFxBxDxCxegedabagacad
+      PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+      MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+      $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+}
+spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }	
+
+cdf () {
+        currFolderPath=$( /usr/bin/osascript <<EOT
+            tell application "Finder"
+                try
+            set currFolder to (folder of the front window as alias)
+                on error
+            set currFolder to (path to desktop folder as alias)
+                end try
+                POSIX path of currFolder
+            end tell
+EOT
+        )
+        echo "cd to \"$currFolderPath\""
+        cd "$currFolderPath"
+    }
+
+
 export PATH="$HOME/bin:$PATH" 
 export PS1="me:\e[7m\w\e[27m [\!]$ "
 export PROMPT_COMMAND='echo -ne "\033]0;: `pwd`\007"'
 export SVN_EDITOR=`which vi`
-export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
-export LESS=' -N -R '
+#export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+#export LESS=' -N -R '
 
 GREP_OPTIONS='--color=auto'
 
@@ -34,8 +165,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 e() {
-	/Applications/Emacs.app/Contents/MacOS/Emacs "$@" &
+  exec /Applications/Emacs.app/Contents/MacOS/Emacs -q -l $dotemacs "$@" &
 }
+
 here() { 
 	cd $1; basename $PWD 
 }
@@ -49,13 +181,13 @@ cat <<'EOF'
     /\        Welcome to the Timmnix shell (v1.6)
    {.-}       On the web: https://github.com/timm/timmnix
   ;_.-'\        
- {    _.}_    "Contrary to popular belief, Unix is user
-  \.-' /  `,   friendly. It just happens to be very selective
-   \  |    /   about who it decides to make friends with."
-    \ |  ,/    -- unknown
- jgs \|_/      
-              To leave, type 'exit'.
-
+ {    _.}_    "Contrary to popular belief, Unix is user friendly.
+  \.-' /  `,   It just happens to be very selective about who it
+   \  |    /   decides to make friends with." -- unknown
+    \ |  ,/    
+ jgs \|_/     To leave, type 'exit'.
+              Then again, why would you want to leave all this?
+              
 EOF
 
 

@@ -1,0 +1,17 @@
+# -*- makefile -*-
+SHELL := /bin/bash
+Make     = $(MAKE) --no-print-directory
+
+Act      = action
+Makefile = $(PWD)/rmake
+Dirs     = $(shell find . -type d  -not -path '*/\.*')
+
+actions:
+	@$(foreach Dir,$(Dirs),\
+	      	(cd $(Dir); \
+                 $(MAKE) -f $(Makefile) Dir=$(Dir) $(Act););)
+
+# write this code, assuming you have landed in a sub-directory
+action:
+	@echo $(Dir)
+	@ls | wc -l

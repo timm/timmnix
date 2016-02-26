@@ -1,0 +1,11 @@
+Here=$(pwd)
+for d in */*; do 
+	if [ -d "$d" ] ; then
+	     	echo ""; echo""; echo ""
+		echo "====== $d ========"
+		echo ""; echo""; echo ""
+		cd $d
+	 	make update
+		cd $Here
+	fi
+done | tee updates.log

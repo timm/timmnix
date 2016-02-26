@@ -1,4 +1,43 @@
 ; -*- elisp -*-
+(setq ispell-program-name "/usr/local/bin/ispell")
+
+;(setq inferior-lisp-program "/usr/local/bin/sbcl")
+;(load "~/quicklisp/setup.lisp")
+;(load (expand-file-name "~/.local/opt/quicklisp/slime-helper.el"))
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
+
+
+    (setq tab-width 2) 
+
+(add-to-list 'load-path "~/gits/timm/timmnix/")
+
+(require 'lua-block)
+ (lua-block-mode t)
+ (defun lua-block-goto-corresponding-point ()
+  "Jump to corresponding point."
+  (interactive)
+  (goto-char (lua-block-get-corresponding-point)))
+
+(add-hook 'lua-mode-hook (lambda ()
+                 (local-set-key (kbd "C-c C-b")
+                        'lua-block-goto-corresponding-point)))
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (setq lua-indent-level 2)
 
@@ -64,13 +103,13 @@
 
 (global-set-key "\C-cs" 'slime-selector)
 
-(defun cliki:start-slime ()
-   (unless (slime-connected-p)
-     (save-excursion (slime))))
+;(defun cliki:start-slime ()
+ ;  (unless (slime-connected-p)
+  ;   (save-excursion (slime))))
 
 
-(add-hook 'slime-mode-hook 'cliki:start-slime)
-(add-hook 'slime-mode-hook 'hs-minor-mode)
+;(add-hook 'slime-mode-hook 'cliki:start-slime)
+;(add-hook 'slime-mode-hook 'hs-minor-mode)
 (setq frame-title-format
   '(:eval
     (if buffer-file-name
@@ -87,10 +126,27 @@
                             tab-width 2)
        (setq python-indent 2)))
 
+(add-hook 'julia-mode-hook
+   (lambda ()
+               (setq indent-tabs-mode nil
+                            tab-width 2)
+	       (setq julia-indent-offset 2)
+               (setq julia-indent-level 2)))
+
+
+(add-hook 'awk-mode-hook
+   (lambda ()		    
+       (setq-default c-electric-flag nil)
+       (setq indent-tabs-mode nil
+       	     tab-width 2)
+       (setq awk-indent 2)))
+
 (setq auto-mode-alist 
       (append
-       '(("\.pl" . prolog-mode)
-	 ("\.md" . markdown-mode)) 
+       '(
+         ("\.py$" . python-mode)
+         ("\.pl$" . prolog-mode)
+	 ("\.md$" . markdown-mode)) 
     auto-mode-alist))
 
 (setq prolog-indent-width 2
