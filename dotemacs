@@ -22,6 +22,17 @@
 
 (add-to-list 'load-path "~/gits/timm/timmnix/")
 
+(require 'lua-block)
+ (lua-block-mode t)
+ (defun lua-block-goto-corresponding-point ()
+  "Jump to corresponding point."
+  (interactive)
+  (goto-char (lua-block-get-corresponding-point)))
+
+(add-hook 'lua-mode-hook (lambda ()
+                 (local-set-key (kbd "C-c C-b")
+                        'lua-block-goto-corresponding-point)))
+
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
@@ -98,6 +109,7 @@
   (transient-mark-mode t)
   (setq scroll-step 1)
   (global-hl-line-mode 0)
+  (setq-default indent-tabs-mode nil)
   (setq-default fill-column 52))
 
 (global-set-key "\C-cs" 'slime-selector)
