@@ -52,13 +52,24 @@
 (setq vc-follow-symlinks t)
 (setq flyspell-issue-welcome-flag nil) ;
 
+(defun mylua()
+       (interactive)	
+  (require 'lua-block)	
+  (lua-block-mode t)
+  (setq lua-block-highlight-toggle 'overlay)
+  ;; display to minibuffer
+  (setq lua-block-highlight-toggle 'minibuffer)
+  ;; display to minibuffer and do overlay
+  (setq lua-block-highlight-toggle t))
+
+      
 (defun color1 ()
 	(interactive)
 	(require 'color-theme)
 	(eval-after-load "color-theme"
   		'(prog	n
-     		(color-theme-initialize)
-     		(color-theme-emacs-nw))))
+     		    (color-theme-initialize)
+     		    (color-theme-emacs-nw))))
 
 ;(when (eq window-system 'x)
  ;     (set-face-attribute 'default nil :height 100))
