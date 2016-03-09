@@ -22,6 +22,17 @@
 
 (add-to-list 'load-path "~/gits/timm/timmnix/")
 
+(setq c-default-style '((java-mode . "java")
+                        (awk-mode . "awk")
+                        (other . "linux-tabs-only")))
+                        
+(setq ; control awk mode
+ awk-mode-hook
+ (function (lambda ()
+	 (setq c-basic-offset 2)
+	 (c-toggle-electric-state -1)
+	 )))
+         
 (require 'lua-block)
  (lua-block-mode t)
  (defun lua-block-goto-corresponding-point ()
