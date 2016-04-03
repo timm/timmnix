@@ -1,4 +1,4 @@
-; -*- elisp -*-
+; -*- lisp -*-
 (setq ispell-program-name "/usr/local/bin/ispell")
 
 ;(setq inferior-lisp-program "/usr/local/bin/sbcl")
