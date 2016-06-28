@@ -26,6 +26,7 @@ export CDPATH=".$_gits"
 
 export EDITOR="/usr/bin/vim"
 
+
 makefile0() { cat <<EOF
 
 typo: ready
@@ -110,12 +111,14 @@ gots() {
        done
 }
 
+
 gitting() {
 	git config user.name "$1"
 	git config user.email "$2"
 	git config --global credential.helper cache
 	git config credential.helper 'cache --timeout=3600'
 }
+
 
 mac() {
       # from http://natelandau.com/my-mac-osx-bash_profile/
@@ -127,11 +130,12 @@ mac() {
       PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
       MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
       $PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-      if [ -f "$HOME/.iterm2_shell_integration.`basename $SHELL" ]; then
+      if [ -f "$HOME/.iterm2_shell_integration.`basename $SHELL`" ]; then
 		source ~/.iterm2_shell_integration.`basename $SHELL`
       fi
 }
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }	
+
 
 cdf () {
         currFolderPath=$( /usr/bin/osascript <<EOT

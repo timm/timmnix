@@ -28,6 +28,8 @@ rerun() {
   /usr/local/bin/rerun " date +'%S'; python -B $1.py | /usr/bin/column -s\  -t -e"
 }
 
+echo 1
+
 # My favorite repo trick
 # Avoids have Makefiles all over the sub-directories.
 # Calls to "make" jump to  root of current repo, and "makes" there.
@@ -52,3 +54,4 @@ make() {
     /usr/bin/make $*
   fi
 }
+echo 2
