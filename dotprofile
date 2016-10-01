@@ -17,7 +17,7 @@ alias echor='>&2 echo'
 alias c="/usr/bin/column -s\  -t -e "
 
 e() {
-  /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
+  /Applications/Emacs.app/Contents/MacOS/Emacs "$@" &;
 }
 hiagain() {
 	wget -O $HOME/hi https://raw.githubusercontent.com/timm/timmnix/master/dotprofile
@@ -31,7 +31,6 @@ rerun() {
   /usr/local/bin/rerun " date +'%S'; python -B $1.py | /usr/bin/column -s\  -t -e"
 }
 
-echo 1
 
 # My favorite repo trick
 # Avoids have Makefiles all over the sub-directories.
@@ -56,6 +55,7 @@ make() {
   else
     /usr/bin/make $*
   fi
+}
 gitpush() {
   git status
    git commit -am "saving"
