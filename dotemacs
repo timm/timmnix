@@ -93,6 +93,8 @@
      		    (color-theme-initialize)
      		    (color-theme-emacs-nw))))
 
+(x-focus-frame nil)
+
 ;(when (eq window-system 'x)
  ;     (set-face-attribute 'default nil :height 100))
 
