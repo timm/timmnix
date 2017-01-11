@@ -2,9 +2,14 @@
 brew update
 brew install emacs --cocoa
 brew linkapps emacs
+<<<<<<< HEAD
 brew install htop git markdown pandoc wget gawk  imagemagick ispell gnuplot tree vim python3
+     
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 sudo easy_install pip
 pip install "requests[security]"
+sudo -H pip install numpy scipy
 sudo -H pip install --user --install-option="--prefix=" -U scikit-learn
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
