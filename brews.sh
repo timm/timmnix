@@ -4,8 +4,11 @@ brew install emacs --cocoa
 brew linkapps emacs
 brew install htop git markdown pandoc wget gawk \
      imagemagick ispell gnuplot tree
+     
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sudo easy_install pip
 pip install "requests[security]"
+sudo -H pip install numpy scipy
 sudo -H pip install --user --install-option="--prefix=" -U scikit-learn
 
 echo "need full xcode installed"
