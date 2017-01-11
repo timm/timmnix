@@ -2,11 +2,12 @@
 brew update
 brew install emacs --cocoa
 brew linkapps emacs
-brew install htop git markdown pandoc wget gawk \
-     imagemagick ispell gnuplot tree
+brew install htop git markdown pandoc wget gawk  imagemagick ispell gnuplot tree vim python3
 sudo easy_install pip
 pip install "requests[security]"
 sudo -H pip install --user --install-option="--prefix=" -U scikit-learn
+
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "need full xcode installed"
 brew install macvim
