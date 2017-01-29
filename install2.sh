@@ -5,3 +5,9 @@ sudo add-apt-repository ppa:ricotz/docky
 
 sudo apt-get update
 sudo apt-get install plank
+
+
+sudo apt-get install gnome-screenshot 
+
+
+setxkbmap -layout us
