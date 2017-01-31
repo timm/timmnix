@@ -1,3 +1,4 @@
+sudo apt-get install virtualbox-guest-dkms
 sudo apt-get install python-pip python-dev build-essential 
 sudo pip install --upgrade pip 
 
