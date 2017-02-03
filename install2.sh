@@ -4,6 +4,10 @@ sudo pip install --upgrade pip
 
 #sudo add-apt-repository ppa:ricotz/docky
 
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+
+
 sudo apt-get update
 #sudo apt-get install plank
 
@@ -13,6 +17,7 @@ sudo apt-get install gnome-screenshot
 sudo add-apt-repository ppa:libreoffice/ppa
 udo apt update
 sudo apt dist-upgrade
+
 
 setxkbmap -layout us
 
