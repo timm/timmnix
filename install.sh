@@ -89,6 +89,7 @@ else  	sudo apt-get -q install $All
 	sudo pip install --user --install-option="--prefix=" -U scikit-learn
 	sudo pip install https://github.com/wandernauta/yuml/zipball/master
 fi
+sudo usermod -G vboxsf -a timm
 
 echo "also, shutter"
 echo "run type catcher, install droid sans"
