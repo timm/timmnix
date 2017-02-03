@@ -1,8 +1,10 @@
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
 
 set nocompatible              " required
-filetype off                  " required
+"filetype off                  " required
 filetype plugin indent on
-set modelines=0
+"set modelines=0
 set scrolloff=3
 set autoindent
 set hidden "remember ls
@@ -35,7 +37,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
