@@ -29,3 +29,8 @@ sudo apt-get update
 sudo apt-get install spotify-client
 
 sudo pip install pycco
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cat dotvim >> ~/.vimrc
+vim +PluginInstall +qall      # install vim plugins
+
+
