@@ -33,6 +33,8 @@ sudo apt-get update
 # 4. Install Spotify
 sudo apt-get install spotify-client
 
+sudo apt-get install vim-gtk3
+
 sudo pip install pycco
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat dotvim >> ~/.vimrc
