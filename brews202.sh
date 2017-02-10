@@ -22,7 +22,10 @@ brew update
  
 # Upgrade any already-installed formulae.
 brew upgrade --all
- 
+
+brew install caskroom/cask/brew-cask
+brew cask install mactex
+
 # Add some casks
 brew tap caskroom/cask
 brew tap homebrew/dupes
@@ -43,6 +46,7 @@ brew install tunnelblick
  
 # Software
 echo Install basic apps
+brew cask install --appdir="/Applications" macvim
 brew cask install --appdir="/Applications" screenhero
 brew cask install --appdir="/Applications" clipmenu
 brew cask install --appdir="/Applications" wordpresscom
@@ -74,7 +78,10 @@ echo Install Development tools
 brew install nano
 brew install git
 brew install subversion
- 
+sudo easy_install pip
+udo -H pip install numpy scipy
+sudo -H pip install --user --install-option="--prefix=" -U scikit-learn
+
 # Get a better shell
 brew install zsh zsh-completions
  
@@ -91,12 +98,15 @@ brew install ack
 brew install hub
 brew install sass
 brew install keroku-toolbelt
+brew install htop markdown pandoc gnuplut tree python3
 brew tap homebrew/homebrew-php
 brew install composer
 brew install wp-cli
 brew install chromedriver
 gem install wbench
- 
+
+brew cask install --appdir="/Applications" macvim
+
 # Entertainment
 echo Install some nice-to-have Entertainment tools
 brew cask install --appdir="/Applications" sonarr
