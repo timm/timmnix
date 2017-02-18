@@ -30,7 +30,6 @@ action:
 	@echo $(Dir)
 	@ls | wc -l
 
-
 typo:  ready 
 	@- git status
 	@- git commit -am "saving"
