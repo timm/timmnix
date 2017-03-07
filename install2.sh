@@ -40,4 +40,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cat dotvim >> ~/.vimrc
 vim +PluginInstall +qall      # install vim plugins
 
+sudo apt-get install lxappearance gtk-chtheme qt4-qtconfig
 
