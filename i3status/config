@@ -37,7 +37,7 @@ battery all {
         format = "%status %percentage %remaining"
 }
 tztime local {
-        format = " %m-%d ⏰ %H:%M"
+        format = " %m-%d ⚇ %H:%M"
 }
 
 cpu_usage {
@@ -47,6 +47,7 @@ cpu_usage {
 
 load {
         format = "◓ %1min"
+}
 
 disk "/" {
         format = "%avail"
