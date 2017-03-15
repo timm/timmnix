@@ -165,6 +165,8 @@ bindsym Mod1+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+	font pango:Hack, FontAwesome 10
+
 }
 
 #######################################################################
@@ -177,3 +179,5 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 # exec i3-config-wizard
+exec --no-startup-id i3-msg 'workspace 1; exec oneko; exec lxterminal; exec lxterminal;  exec /usr/bin/firefox'
+#
