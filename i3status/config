@@ -6,6 +6,8 @@
 # ß
 # If the above line is not correctly displayed, fix your editor first!
 
+# http://emojipedia.org/
+#
 general {
 	colors = true
 	color_good = "#BBBBBB"
@@ -19,7 +21,7 @@ order += "load "
 # order += "disk /"
 # order += "wireless _first_"
 # order += "ethernet _first_"
-# order += "battery all"
+order += "battery all"
 order += "tztime local"
 
 wireless _first_ {
@@ -34,19 +36,19 @@ ethernet _first_ {
 }
 
 battery all {
-        format = "%status %percentage %remaining"
+        format = "🔌 %percentage"
 }
 tztime local {
-        format = " %m-%d ⚇ %H:%M"
+        format = "🗓️ %m-%d ⏰  %H:%M"
 }
 
 cpu_usage {
-        format = "⁂ %usage"
+        format = "💻 %usage"
 
 }
 
 load {
-        format = "◓ %1min"
+        format = "🎢 %1min"
 }
 
 disk "/" {
