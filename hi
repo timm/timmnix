@@ -1,0 +1,9 @@
+#https://gist.github.com/rafi/6063132
+setxkbmap -layout us
+EDITOR=/usr/bin/vi
+export EDITOR
+alias open="xdg-open"
+here() { cd $1; basename $PWD; }
+
+PROMPT_COMMAND='echo  -ne "HI:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \!> "'
+
