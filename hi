@@ -5,5 +5,16 @@ export EDITOR
 alias open="xdg-open"
 here() { cd $1; basename $PWD; }
 
-PROMPT_COMMAND='echo  -ne "HI:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$(here ../..)/$(here ..)/$(here .) \!> "'
+    _c1="\[\033[01;32m\]"
+    _c2="\[\033[01;34m\]"
+    _c3="\[\033[31m\]"
+    #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
+    _c4='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    _c5="\[\033[35m\]$"
+    _c0="\[\033[00m\]"
+
+PROMPT_COMMAND='echo  -ne "HI:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1="$_c1$(here ../..)/$_c2$(here ..)/$_c3$(here .) \!>$_c5_$c0\e[m "'
+
+
+# amixer -q -D pulse sset Master toggle
 
