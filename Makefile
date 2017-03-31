@@ -40,12 +40,15 @@ commit:  ready
 	@- git commit -a 
 	@- git push origin master
 
-update:; @- git pull origin master
-status:; @- git status
+update: ready
+	@- git pull origin master
+
+status: ready
+	@- git status
 
 ready: gitting 
 
-gitting:
+gitting: timm
 	@git config --global credential.helper cache
 	@git config credential.helper 'cache --timeout=3600'
 
