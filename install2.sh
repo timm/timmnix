@@ -5,9 +5,6 @@ sudo pip install --upgrade pip
 #sudo add-apt-repository ppa:ricotz/docky
 
 sudo add-apt-repository ppa:jonathonf/vim
-sudo apt update
-
-
 sudo apt-get update
 #sudo apt-get install plank
 
@@ -44,4 +41,8 @@ sudo  echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb
 sudo  apt update
 sudo  apt install i3
 rm .keyring.deb
+mkdir -p ~/.config/i3
+mkdir -p ~/.config/i3status
+cp i3/config ~/.config/i3/
+cp i3status/config ~/.config/i3status/
 
