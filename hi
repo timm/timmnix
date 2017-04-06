@@ -1,4 +1,8 @@
 #https://gist.github.com/rafi/6063132
+#make typo
+git config --global user.email "tim@menzies.us"
+git config --global user.name "Tim Menzies"
+
 setxkbmap -layout us
 EDITOR=/usr/bin/vi
 export EDITOR
@@ -18,3 +22,4 @@ PROMPT_COMMAND='echo  -ne "HI:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1
 
 # amixer -q -D pulse sset Master toggle
 
+ln -sf $HOME/gits/ok2awk/src ok

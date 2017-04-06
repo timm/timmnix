@@ -1,3 +1,12 @@
+
+sudo "deb http://debian.sur5r.net/i3/ $(lsb_release -c -s) universe" >> /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get --allow-unauthenticated install sur5r-keyring
+sudo apt-get update
+sudo apt-get install i3
+
+read -p "Hit return to continue. "
+
 #sudo apt-get install virtualbox-guest-dkms
 sudo apt-get install python-pip python-dev build-essential 
 sudo pip install --upgrade pip 
@@ -37,4 +46,3 @@ if [ ! -f "~/.vimrc" ]; then
 fi
 
 sudo apt-get install lxappearance gtk-chtheme qt4-qtconfig
-
