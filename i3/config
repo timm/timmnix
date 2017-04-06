@@ -166,7 +166,11 @@ bindsym Mod1+r mode "resize"
 bar {
         status_command i3status
 	font pango:Hack, FontAwesome 10
-
+	position: top
+	colors {
+	   background #232323
+	   statusline #DCDCDC
+	}
 }
 
 #######################################################################

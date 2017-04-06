@@ -87,7 +87,7 @@ sudo apt update
 
 if 	dpkg -s slrn 2> /dev/null > /dev/null 
 then 	echo skipping installs
-else  	sudo apt-get -q install $All
+else  	sudo apt-get -yq install $All
 	sudo pip install --user --install-option="--prefix=" -U scikit-learn
 	sudo pip install https://github.com/wandernauta/yuml/zipball/master
 fi
