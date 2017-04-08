@@ -22,4 +22,6 @@ PROMPT_COMMAND='echo  -ne "HI:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1
 
 # amixer -q -D pulse sset Master toggle
 
-ln -sf $HOME/gits/ok2awk/src ok
+if [ ! \( -e "$HOME/ok" \) ]; then
+  ln -sf $HOME/gits/ok2awk/src $HOME/ok
+fi
