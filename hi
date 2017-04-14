@@ -7,6 +7,7 @@ setxkbmap -layout us
 EDITOR=/usr/bin/vi
 export EDITOR
 alias open="xdg-open"
+alias gump='gimp -cfs 2> /dev/null &'
 here() { cd $1; basename $PWD; }
 
     _c1="\[\033[01;32m\]"
@@ -24,4 +25,8 @@ PROMPT_COMMAND='echo  -ne "HI:\033]0;$(here ../..)/$(here ..)/$(here .)\007";PS1
 
 if [ ! \( -e "$HOME/ok" \) ]; then
   ln -sf $HOME/gits/ok2awk/src $HOME/ok
+fi
+
+if [ -n "$1" ]; then 
+	cd $1
 fi

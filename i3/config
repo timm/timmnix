@@ -183,5 +183,6 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 # exec i3-config-wizard
+exec --no-startup-id feh --bgscale $HOME/gits/timm/timmnix/img/magnolias.jpg 
 exec --no-startup-id i3-msg 'workspace 1; exec oneko; exec lxterminal; exec lxterminal;  exec /usr/bin/firefox'
 #

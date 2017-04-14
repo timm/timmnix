@@ -56,6 +56,7 @@ luakit
 luarocks
 make
 nano
+pinta
 pandoc
 pandoc-citeproc
 screen
