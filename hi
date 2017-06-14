@@ -8,6 +8,7 @@ EDITOR=/usr/bin/vi
 export EDITOR
 alias open="xdg-open"
 alias gump='gimp -cfs 2> /dev/null &'
+alias matrix="cmatrix -bs"
 here() { cd $1; basename $PWD; }
 
     _c1="\[\033[01;32m\]"
