@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
 	<menu id="root-menu" label="Openbox 3">
-		<item label="oneko">
-			<action name="Execute">
-				<execute>oneko</execute>
-			</action>
-		</item>
+		<menu id="root-menu-962614" label="fun">
+			<item label="Cat">
+				<action name="Execute">
+					<execute>oneko -tora</execute>
+				</action>
+			</item>
+			<item label="Dog">
+				<action name="Execute">
+					<execute>oneko -dog</execute>
+				</action>
+			</item>
+			<item label="Eyes">
+				<action name="Execute">
+					<execute>xeyes -geom 200x100</execute>
+				</action>
+			</item>
+			<item label="Snow">
+				<action name="Execute">
+					<execute>xsnow</execute>
+				</action>
+			</item>
+		</menu>
 		<menu id="root-menu-251448" label="s">
 			<item label="SImplenote">
 				<action name="Execute">
@@ -29,22 +46,13 @@
 					<execute>xclock -geometry 100x100</execute>
 				</action>
 			</item>
-			<item label="Snow">
-				<action name="Execute">
-					<execute>xsnow</execute>
-				</action>
-			</item>
-			<item label="Eyes">
-				<action name="Execute">
-					<execute>xeyes -geom 200x100</execute>
-				</action>
-			</item>
 			<item label="Kill">
 				<action name="Execute">
 					<execute>xkill</execute>
 				</action>
 			</item>
 		</menu>
+		<separator/>
 		<item label="Processes">
 			<action name="Execute">
 				<execute>terminator  --geometry 450x800+5+35  -x htop</execute>
