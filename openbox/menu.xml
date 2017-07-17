@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
 	<menu id="root-menu" label="Openbox 3">
-		<menu id="root-menu-962614" label="fun">
+		<menu id="root-menu-962614" label="Fun">
+			<item label="Acquairium">
+				<action name="Execute">
+					<execute>terminator  --geometry 1200x1200+5+5 -x  asciiquarium</execute>
+				</action>
+			</item>
 			<item label="Cat">
 				<action name="Execute">
 					<execute>oneko -tora</execute>
@@ -17,13 +22,18 @@
 					<execute>xeyes -geom 200x100</execute>
 				</action>
 			</item>
+			<item label="Matrix">
+				<action name="Execute">
+					<execute>terminator  --geometry 450x1200+5+200  -x  cmatrix -b</execute>
+				</action>
+			</item>
 			<item label="Snow">
 				<action name="Execute">
 					<execute>xsnow</execute>
 				</action>
 			</item>
 		</menu>
-		<menu id="root-menu-251448" label="s">
+		<menu id="root-menu-251448" label="S">
 			<item label="SImplenote">
 				<action name="Execute">
 					<execute>/usr/share/simplenote/simplenote</execute>
@@ -40,7 +50,7 @@
 				</action>
 			</item>
 		</menu>
-		<menu id="root-menu-423358" label="x">
+		<menu id="root-menu-423358" label="X">
 			<item label="Clock">
 				<action name="Execute">
 					<execute>xclock -geometry 100x100</execute>
@@ -55,7 +65,7 @@
 		<separator/>
 		<item label="Processes">
 			<action name="Execute">
-				<execute>terminator  --geometry 450x800+5+35  -x htop</execute>
+				<execute>terminator  --geometry 450x800+5+5  -x htop</execute>
 			</action>
 		</item>
 		<item label="Folders">
@@ -75,8 +85,6 @@
 		</item>
 		<!-- This requires the presence of the 'menu' package to work -->
 		<menu id="/Debian"/>
-		<separator/>
-		<menu id="client-list-menu"/>
 		<separator/>
 		<item label="ObConf">
 			<action name="Execute">
