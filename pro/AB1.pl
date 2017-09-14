@@ -30,7 +30,6 @@ eshop/t :- catalogue/t,
 	   (security/high; security/standard),
            might search/t.
 
-
 sure(X) :- X -> true; true.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % misc support stuff
