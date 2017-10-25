@@ -1,7 +1,8 @@
 ; -*- lisp -*-
 (setq ispell-program-name "/usr/local/bin/ispell")
 
-;(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(print 2)
+
 ;(load "~/quicklisp/setup.lisp")
 ;(load (expand-file-name "~/.local/opt/quicklisp/slime-helper.el"))
 
@@ -33,16 +34,16 @@
 	 (c-toggle-electric-state -1)
 	 )))
          
-(require 'lua-block)
- (lua-block-mode t)
- (defun lua-block-goto-corresponding-point ()
-  "Jump to corresponding point."
-  (interactive)
-  (goto-char (lua-block-get-corresponding-point)))
+;; (require 'lua-block)
+;;  (lua-block-mode t)
+;;  (defun lua-block-goto-corresponding-point ()
+;;   "Jump to corresponding point."
+;;   (interactive)
+;;   (goto-char (lua-block-get-corresponding-point)))
 
-(add-hook 'lua-mode-hook (lambda ()
-                 (local-set-key (kbd "C-c C-b")
-                        'lua-block-goto-corresponding-point)))
+;; (add-hook 'lua-mode-hook (lambda ()
+;;                  (local-set-key (kbd "C-c C-b")
+;;                         'lua-block-goto-corresponding-point)))
 
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
@@ -61,153 +62,15 @@
 ;(defun ask-user-about-supersession-threat (fn)
  ; "blatantly ignore files that changed on disk"
  ; )
-(defun ask-user-about-lock (file opponent)
-  "always grab lock"
-   t)
-
-;(defun tags ()
- ; "compile etags for the current project"
-  ;(interactive)
-  ;(cd ".")
-  ;(compile "etags *.lisp"))
-
-(setq vc-follow-symlinks t)
-(setq flyspell-issue-welcome-flag nil) ;
-
-(defun mylua()
-       (interactive)	
-  (require 'lua-block)	
-  (lua-block-mode t)
-  (setq lua-block-highlight-toggle 'overlay)
-  ;; display to minibuffer
-  (setq lua-block-highlight-toggle 'minibuffer)
-  ;; display to minibuffer and do overlay
-  (setq lua-block-highlight-toggle t))
-
-      
-(defun color1 ()
-	(interactive)
-	(require 'color-theme)
-	(eval-after-load "color-theme"
-  		'(prog	n
-     		    (color-theme-initialize)
-     		    (color-theme-emacs-nw))))
-
-(x-focus-frame nil)
-
-;(when (eq window-system 'x)
- ;     (set-face-attribute 'default nil :height 100))
-
-(defun color2 ()
-	(when (not (eq window-system 'x))
-	  (require 'color-theme)
-	  (eval-after-load "color-theme"
-	    '(progn
-	       (color-theme-initialize)
-	       (color-theme-charcoal-black)))))
 
 
-(defun clarity () (interactive) (color-theme-clarity))
-(defun billw   () (interactive) (color-theme-billw))
-
-(setq column-number-mode t)
-;(menu-bar-mode 0) 
-
-(progn
-  (setq inhibit-startup-message t)
-  (setq make-backup-files nil) 
-  (global-font-lock-mode t)
-  (xterm-mouse-mode t)
-  (show-paren-mode t)
-  (transient-mark-mode t)
-  (setq scroll-step 1)
-  (global-hl-line-mode 0)
-  (setq-default indent-tabs-mode nil)
-  (setq-default fill-column 52))
-
-(global-set-key "\C-cs" 'slime-selector)
-
-;(defun cliki:start-slime ()
- ;  (unless (slime-connected-p)
-  ;   (save-excursion (slime))))
+;(setq inferior-lisp-program "/usr/local/bin/sbcl")
+;(require 'slime)
+(add-to-list 'load-path "/usr/local/bin")
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+;; Optionally, specify the lisp program you are using. Default is "lisp"
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 
-;(add-hook 'slime-mode-hook 'cliki:start-slime)
-;(add-hook 'slime-mode-hook 'hs-minor-mode)
-(setq frame-title-format
-  '(:eval
-    (if buffer-file-name
-        (replace-regexp-in-string
-         "\\" "/"
-         (replace-regexp-in-string
-          (regexp-quote (getenv "HOME")) "~"
-          (convert-standard-filename buffer-file-name)))
-      (buffer-name))))
 
-(add-hook 'python-mode-hook
-   (lambda ()
-               (setq indent-tabs-mode nil
-                            tab-width 2)
-       (setq python-indent 2)))
-
-(add-hook 'python-mode-hook
-  (lambda()
-    (local-set-key (kbd "C-c <right>") 'hs-show-block)
-    (local-set-key (kbd "C-c <left>")  'hs-hide-block)
-    (local-set-key (kbd "C-c <up>")    'hs-hide-all)
-    (local-set-key (kbd "C-c <down>")  'hs-show-all)
-    (hs-minor-mode t)))
-
-(add-hook 'julia-mode-hook
-   (lambda ()
-               (setq indent-tabs-mode nil
-                            tab-width 2)
-	       (setq julia-indent-offset 2)
-               (setq julia-indent-level 2)))
-
-
-(add-hook 'awk-mode-hook
-   (lambda ()		    
-       (setq-default c-electric-flag nil)
-       (setq indent-tabs-mode nil
-       	     tab-width 2)
-       (setq awk-indent 2)))
-
-(setq auto-mode-alist 
-      (append
-       '(
-         ("\.py$" . python-mode)
-         ("\.pl$" . prolog-mode)
-	 ("\.md$" . markdown-mode)) 
-    auto-mode-alist))
-
-(setq prolog-indent-width 2
-            prolog-electric-dot-flag t
-            prolog-electric-dash-flag t
-            prolog-electric-colon-flag t)
-
-(add-hook 'markdown-mode-hook 'flyspell-mode)
-(add-hook 'python-mode-hook 'flyspell-mode)
-(put 'downcase-region 'disabled nil)
-
-;(setq c-toggle-syntactic-indentation nil)
-;(setq c-basic-indent 2)
-;(setq tab-width 2)
-;(setq indent-tabs-mode nil)
-
-(set-fill-column 70)
-
-(add-hook 'latex-mode-hook 'turn-on-flyspell)
-
-
-(defun wc (start end)
-    "Print number of words in the region."
-    (interactive "r")
-    (save-excursion
-      (save-restriction
-        (narrow-to-region start end)
-        (goto-char (point-min))
-         (message "Region has %d words."
-  (count-matches "\sw+")))))
-
- (put 'upcase-region 'disabled nil)
