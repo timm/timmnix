@@ -1,7 +1,7 @@
-; -*- lisp -*-
+; -*- mode: emacs-lisp; -*-
 (setq ispell-program-name "/usr/local/bin/ispell")
 
-;(setq inferior-lisp-program "/usr/local/bin/sbcl")
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 ;(load "~/quicklisp/setup.lisp")
 ;(load (expand-file-name "~/.local/opt/quicklisp/slime-helper.el"))
 
@@ -64,7 +64,8 @@
 (defun ask-user-about-lock (file opponent)
   "always grab lock"
    t)
-
+; -*- mode: emacs-lisp-mode; -*-
+ 
 ;(defun tags ()
  ; "compile etags for the current project"
   ;(interactive)
@@ -93,25 +94,25 @@
      		    (color-theme-initialize)
      		    (color-theme-emacs-nw))))
 
-(x-focus-frame nil)
+;(x-focus-frame nil)
 
 ;(when (eq window-system 'x)
  ;     (set-face-attribute 'default nil :height 100))
 
 (defun color2 ()
-	(when (not (eq window-system 'x))
-	  (require 'color-theme)
-	  (eval-after-load "color-theme"
-	    '(progn
-	       (color-theme-initialize)
-	       (color-theme-charcoal-black)))))
+  (when (not (eq window-system 'x))
+    (require 'color-theme)
+    (eval-after-load "color-theme"
+      '(progn
+         (color-theme-initialize)
+         (color-theme-charcoal-black)))))
 
 
 (defun clarity () (interactive) (color-theme-clarity))
 (defun billw   () (interactive) (color-theme-billw))
 
 (setq column-number-mode t)
-;(menu-bar-mode 0) 
+;(menu-bar-mode nil) 
 
 (progn
   (setq inhibit-startup-message t)
@@ -211,3 +212,10 @@
   (count-matches "\sw+")))))
 
  (put 'upcase-region 'disabled nil)
+
+
+(font-lock-add-keywords
+ 'lisp-mode
+ '(("deftest" . font-lock-keyword-face)
+   ("dohash" . font-lock-keyword-face)
+   ("doitems" . font-lock-keyword-face)))
