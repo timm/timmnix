@@ -1,0 +1,8 @@
+alias swipl=/Applications/SWI-Prolog.app/Contents/MacOS/swipl
+
+eg() {
+  swipl -f AB1.pl -g "go($1/$2),halt" -- -r $RANDOM 
+}
+eg1() { eg happy t; }
+eg2() { eg eshop t; }
+

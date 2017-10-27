@@ -33,16 +33,16 @@
 	 (c-toggle-electric-state -1)
 	 )))
          
-(require 'lua-block)
- (lua-block-mode t)
- (defun lua-block-goto-corresponding-point ()
-  "Jump to corresponding point."
-  (interactive)
-  (goto-char (lua-block-get-corresponding-point)))
+;; (require 'lua-block)
+;;  (lua-block-mode t)
+;;  (defun lua-block-goto-corresponding-point ()
+;;   "Jump to corresponding point."
+;;   (interactive)
+;;   (goto-char (lua-block-get-corresponding-point)))
 
-(add-hook 'lua-mode-hook (lambda ()
-                 (local-set-key (kbd "C-c C-b")
-                        'lua-block-goto-corresponding-point)))
+;; (add-hook 'lua-mode-hook (lambda ()
+;;                  (local-set-key (kbd "C-c C-b")
+;;                         'lua-block-goto-corresponding-point)))
 
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
@@ -219,3 +219,15 @@
  '(("deftest" . font-lock-keyword-face)
    ("dohash" . font-lock-keyword-face)
    ("doitems" . font-lock-keyword-face)))
+
+
+;(setq inferior-lisp-program "/usr/local/bin/sbcl")
+;(require 'slime)
+(add-to-list 'load-path "/usr/local/bin")
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+;; Optionally, specify the lisp program you are using. Default is "lisp"
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+
+
+
