@@ -114,6 +114,7 @@
 (setq column-number-mode t)
 ;(menu-bar-mode 0) 
 (tool-bar-mode 0)
+(scroll-bar-mode 0)
 
 (progn
   (setq inhibit-startup-message t)
@@ -123,7 +124,7 @@
   (show-paren-mode t)
   (transient-mark-mode t)
   (setq scroll-step 1)
-  (global-hl-line-mode 0)
+  (global-hl-line-mode 1)
   (setq-default indent-tabs-mode nil)
   (setq-default fill-column 52))
 
@@ -233,14 +234,20 @@
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 ;; Optionally, specify the lisp program you are using. Default is "lisp"
 
+(global-linum-mode 1)
 
-(package-initialize)
+  (require 'ido)
+(ido-mode t)
+
 (require 'slime-autoloads)
+
+                                        ; slime auto-complete linum ido smex
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl"
       slime-contribs '(slime-fancy))
 
-
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
