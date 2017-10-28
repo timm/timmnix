@@ -1,7 +1,0 @@
-tmp=/tmp/$USER
-tick=$tmp/$$
-mkdir $tmp
-
-sdas
-
-ls
