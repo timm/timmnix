@@ -1,7 +1,7 @@
 ;;;; pacakge stuff
 
 (progn 
-  (defvar my-packages '(slime helm powerline
+  (defvar my-packages '(slime helm powerline 
                               better-defaults paredit
                               idle-highlight-mode
                               ido-ubiquitous
@@ -56,3 +56,5 @@
   (put 'dohash 'lisp-indent-function 'defun)
   (put 'doitems 'lisp-indent-function 'defun)
   )
+
+(global-set-key (kbd "C-x g") 'magit-status)
