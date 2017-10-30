@@ -28,16 +28,35 @@
   (setq recentf-max-menu-items 25)
   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
   (global-set-key (kbd "C-x g") 'magit-status) 
+  (setq-default frame-title-format
+              '(:eval
+                (format "%s %s"
+                        
+                        (buffer-name)
+                        (cond
+                         (buffer-file-truename
+                          (concat "(" buffer-file-truename ")"))
+                         (dired-directory
+                          (concat "{" dired-directory "}"))
+                         (t
+                          "[no file]")))))
 )
+;;;; general lisp things
 
-;;;; gemeral lisp things
+
 (progn
   (require 'slime)
   (require 'slime-autoloads)
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
   (add-to-list 'load-path "/usr/local/bin/sbcl")
-  (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-  (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+
+
+  (add-hook 'slime-mode-hook '(lambda () 
+                              (unless (get-process "SLIME Lisp")
+                                (slime))))
+
+  
+  ;(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
   (setq inferior-lisp-program "/usr/local/bin/sbcl"
         slime-contribs '(slime-fancy)))
 
@@ -49,13 +68,18 @@
    'lisp-mode
    '(("deftest" . font-lock-keyword-face)
      ("dohash" . font-lock-keyword-face)
+     ("defklass" . font-lock-keyword-face)
+     ("defthing" . font-lock-keyword-face)
      ("deftable" . font-lock-keyword-face)
      ("doitems" . font-lock-keyword-face)))
   
   (put 'deftest 'lisp-indent-function 'defun)
+  (put 'defklass  'lisp-indent-function 'defun)
+  (put 'defthing 'lisp-indent-function 'defun)
   (put 'deftable 'lisp-indent-function 'defun)
   (put 'dohash 'lisp-indent-function 'defun)
   (put 'doitems 'lisp-indent-function 'defun)
   )
+
 
 
