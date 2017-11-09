@@ -25,6 +25,7 @@
   (ido-mode t)
   (global-hl-line-mode)
   (recentf-mode 1)
+  (setq ess-fancy-comments nil)
   (setq recentf-max-menu-items 25)
   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
   (global-set-key (kbd "C-x g") 'magit-status) 
@@ -56,9 +57,10 @@
                                 (slime))))
 
   
-  ;(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+  (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
   (setq inferior-lisp-program "/usr/local/bin/sbcl"
-        slime-contribs '(slime-fancy)))
+       slime-contribs '(slime-fancy))i
+  )
 
 
 ;;;; my specific list things
