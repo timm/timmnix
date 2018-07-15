@@ -1,0 +1,18 @@
+tin -A -p 119 -f ~/.newsrc -g  news.eternal-september.org
+
+chmod 600 ~/.newsauth
+news.eternal-september.org pusytlrhf  timm
+
+.newsrc
+
+
+comp.lang.lisp: 1-67416
+comp.lang.prolog: 1-10355
+comp.lang.awk: 1-11892
+comp.lang.python: 1-227306
+comp.os.linux.x: 1-964
+comp.ai: 1-191
+comp.editors: 1-3202
+uk.media.radio.bbc-r1: 1-25
+aus.net.news: 1-14
+sci.space.news: 1-7639
