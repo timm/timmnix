@@ -25,6 +25,7 @@
   (ido-mode t)
   (global-hl-line-mode)
   (recentf-mode 1)
+  (setq ess-fancy-comments nil)
   (setq recentf-max-menu-items 25)
   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
   (global-set-key (kbd "C-x g") 'magit-status) 
@@ -40,7 +41,8 @@
                           (concat "{" dired-directory "}"))
                          (t
                           "[no file]")))))
-)
+  (desktop-save-mode 1)
+  )
 ;;;; general lisp things
 
 
@@ -49,16 +51,13 @@
   (require 'slime-autoloads)
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
   (add-to-list 'load-path "/usr/local/bin/sbcl")
-
-
-  (add-hook 'slime-mode-hook '(lambda () 
-                              (unless (get-process "SLIME Lisp")
-                                (slime))))
-
-  
-  ;(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
-  (setq inferior-lisp-program "/usr/local/bin/sbcl"
-        slime-contribs '(slime-fancy)))
+  (add-hook 'slime-mode-hook 
+	    '(lambda () 
+	       (unless (get-process "SLIME Lisp")
+		 (slime))))
+  (add-hook 'inferior-lisp-mode-hook 
+	    (lambda () (inferior-slime-mode t)))
+)
 
 
 ;;;; my specific list things
@@ -80,6 +79,3 @@
   (put 'dohash 'lisp-indent-function 'defun)
   (put 'doitems 'lisp-indent-function 'defun)
   )
-
-
-
