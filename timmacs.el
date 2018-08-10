@@ -21,10 +21,10 @@
   (menu-bar-mode 1)
   (setq scroll-step 1)
   (global-linum-mode 1)
+  (electric-indent-mode 0)
   (require 'ido)
   (ido-mode t)
   (global-hl-line-mode)
-  (recentf-mode 1)
   (setq ess-fancy-comments nil)
   (setq recentf-max-menu-items 25)
   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
@@ -48,15 +48,15 @@
 
 (progn
   (require 'slime)
-  (require 'slime-autoloads)
+  ;(require 'slime-autoloads)
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
-  (add-to-list 'load-path "/usr/local/bin/sbcl")
-  (add-hook 'slime-mode-hook 
-	    '(lambda () 
-	       (unless (get-process "SLIME Lisp")
-		 (slime))))
-  (add-hook 'inferior-lisp-mode-hook 
-	    (lambda () (inferior-slime-mode t)))
+  ;(add-to-list 'load-path "/usr/local/bin/sbcl")
+  ;(add-hook 'slime-mode-hook 
+;	    '(lambda () 
+;	       (unless (get-process "SLIME Lisp")
+;		 (slime))))
+  ;(add-hook 'inferior-lisp-mode-hook 
+;	    (lambda () (inferior-slime-mode t)))
 )
 
 
