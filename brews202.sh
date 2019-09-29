@@ -81,7 +81,7 @@ brew install nano
 brew install git
 brew install subversion
 sudo easy_install pip
-udo -H pip install numpy scipy
+sudo -H pip install numpy scipy
 sudo -H pip install --user --install-option="--prefix=" -U scikit-learn
 
 # Get a better shell

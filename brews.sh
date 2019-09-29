@@ -1,8 +1,9 @@
 #
 brew update
+brew cask install google-chrome
+brew cask install iterm2
 brew install emacs --cocoa
 brew linkapps emacs
-<<<<<<< HEAD
 brew install htop git markdown pandoc wget gawk  imagemagick ispell gnuplot tree vim python3
      
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
