@@ -1,19 +1,42 @@
 #
-brew update
+set -x
+brew install caskroom/cask/brew-cask 
+brew tap caskroom/cask                # Tap the Caskroom/Cask repository from Github using HTTPS.
 brew cask install google-chrome
 brew cask install iterm2
 brew cask install --appdir="/Applications" google-drive
 brew cask install --appdir="/Applications" dropbox
+sudo easy_install nose
+sudo easy_install tornado
 brew install nano
 brew install git
 brew install subversion
-sudo easy_install pip
-sudo -H pip install numpy scipy
-sudo -H pip install --user --install-option="--prefix=" -U scikit-learn
+sudo easy_install pip3
+pip3 install matplotlib
+sudo -H pip3 install numpy scipy
+sudo -H pip3 install --user --install-option="--prefix=" -U scikit-learn
 brew install node
 brew install npm
 brew install asciiquarium
 brew install cmatrix
+brew cask install spotify
+
+brew cask install skype
+brew cask install simplenote
+brew search evernote                  # Searches all known Casks for a partial or exact match.
+brew cask info evernote               # Displays information about the given Cask
+brew cask install evernote            # Install the given cask.
+brew install lastpass-cli
+brew cask install slack
+brew install macvim
+
+ brew search dropbox                   # Searches all known Casks for a partial or exact match.
+ brew cask info dropbox                # Displays information about the given Cask
+brew cask install google-drive
+
+ brew cask install dropbox 
+brew linkapps
+brew cleanup    
 
 #bbbrew install emacs --cocoa
 #brew linkapps emacs
