@@ -1,9 +1,9 @@
 # Window Customization
 window:
   opacity: .95
-  dimensions:
-    columns: 140
-    lines: 38
+  #dimensions:
+  #  columns: 140
+  #  lines: 38
   padding:
     x: 5
     y: 5
@@ -111,10 +111,16 @@ colors:
 
 cursor:
   style:
-    shape: Beam
-    blinking: off
+    shape: Block
+    blinking: on
     blink-interval: 750
     unfocused_hollow: true
 
 key_bindings:
   - { key: N, mods: Control, action: SpawnNewInstance }
+
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 10
+
