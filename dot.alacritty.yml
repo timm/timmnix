@@ -36,36 +36,133 @@ font:
     persistent_logging: false
 draw_bold_text_with_bright_colors: true
 
-# Colors (Gruvbox dark)
+# Colors (SeaShells)
+# Source : https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/SeaShells.itermcolors
 colors:
   # Default colors
   primary:
-    # hard contrast: background = '0x1d2021'
-    background: '0x282828'
-    # soft contrast: background = '0x32302f'
-    foreground: '0xebdbb2'
+    background: '#061923'
+    foreground: '#e5c49e'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '#061822'
+    cursor: '#feaf3c'
+
+  selection:
+    text: '#ffe9d7'
+    background: '#265b75'
 
   # Normal colors
   normal:
-    black:   '0x282828'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
-    magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0xa89984'
+    black: '#1d485f'
+    red: '#db662d'
+    green: '#008eab'
+    yellow: '#feaf3c'
+    blue: '#255a62'
+    magenta: '#77dbf4'
+    cyan: '#5fb1c2'
+    white: '#e5c49e'
 
   # Bright colors
   bright:
-    black:   '0x928374'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xebdbb2'
+    black: '#545d65'
+    red: '#dd998a'
+    green: '#739da8'
+    yellow: '#fedaae'
+    blue: '#0bc7e3'
+    magenta: '#c6e8f1'
+    cyan: '#97b9c0'
+    white: '#ffe9d7'
+#
+# # Colors (Wombat)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x1f1f1f'
+#     foreground: '0xe5e1d8'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x000000'
+#     red:     '0xf7786d'
+#     green:   '0xbde97c'
+#     yellow:  '0xefdfac'
+#     blue:    '0x6ebaf8'
+#     magenta: '0xef88ff'
+#     cyan:    '0x90fdf8'
+#     white:   '0xe5e1d8'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0xb4b4b4'
+#     red:     '0xf99f92'
+#     green:   '0xe3f7a1'
+#     yellow:  '0xf2e9bf'
+#     blue:    '0xb3d2ff'
+#     magenta: '0xe5bdff'
+#     cyan:    '0xc2fefa'
+#     white:   '0xffffff'
+#
+# # Colors (Oceanic Next)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x1b2b34'
+#     foreground: '0xd8dee9'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x29414f'
+#     red:     '0xec5f67'
+#     green:   '0x99c794'
+#     yellow:  '0xfac863'
+#     blue:    '0x6699cc'
+#     magenta: '0xc594c5'
+#     cyan:    '0x5fb3b3'
+#     white:   '0x65737e'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x405860'
+#     red:     '0xec5f67'
+#     green:   '0x99c794'
+#     yellow:  '0xfac863'
+#     blue:    '0x6699cc'
+#     magenta: '0xc594c5'
+#     cyan:    '0x5fb3b3'
+#     white:   '0xadb5c0'
+#
+# # Colors (Gruvbox dark)
+# colors:
+#   # Default colors
+#   primary:
+#     # hard contrast: background = '0x1d2021'
+#     background: '0x282828'
+#     # soft contrast: background = '0x32302f'
+#     foreground: '0xebdbb2'
+#
+#   # Normal colors
+#   normal:
+#     black:   '0x282828'
+#     red:     '0xcc241d'
+#     green:   '0x98971a'
+#     yellow:  '0xd79921'
+#     blue:    '0x458588'
+#     magenta: '0xb16286'
+#     cyan:    '0x689d6a'
+#     white:   '0xa89984'
+#
+#   # Bright colors
+#   bright:
+#     black:   '0x928374'
+#     red:     '0xfb4934'
+#     green:   '0xb8bb26'
+#     yellow:  '0xfabd2f'
+#     blue:    '0x83a598'
+#     magenta: '0xd3869b'
+#     cyan:    '0x8ec07c'
+#     white:   '0xebdbb2'
 #
 # # Colors (Nord)
 # colors:
