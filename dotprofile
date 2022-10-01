@@ -16,9 +16,9 @@ alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias echor='>&2 echo'
 alias c="/usr/bin/column -s\  -t -e "
 
-e() {
-  /Applications/Emacs.app/Contents/MacOS/Emacs "$@" &;
-}
+#e() {
+#  /Applications/Emacs.app/Contents/MacOS/Emacs "$@" &;
+#}
 hiagain() {
 	wget -O $HOME/hi https://raw.githubusercontent.com/timm/timmnix/master/dotprofile
 }
