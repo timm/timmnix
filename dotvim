@@ -1,8 +1,12 @@
+" Shared by vim and nvim: etc/nviminit.lua sources this file.
 " A user vimrc stops vim loading its own defaults.  Re-source them, or
 " we lose syntax, incsearch, ruler, wildmenu, backspace.  Must be first.
-unlet! skip_defaults_vim | source $VIMRUNTIME/defaults.vim
+" nvim has no defaults.vim (and needs none), so skip it there.
+if !has('nvim')
+  unlet! skip_defaults_vim | source $VIMRUNTIME/defaults.vim
+endif
 
-colorscheme lunaperche
+colorscheme sorbet
 
 set hidden                  " switch buffers with changes pending
 set undofile                " undo survives :q
